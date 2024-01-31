@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegitrationController;
+use App\Http\Controllers\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +28,9 @@ Route::delete('/signout', [AuthController::class, 'signout'])->name('auth.signou
 // Registration
 Route::get('/signup', [RegitrationController::class, 'showPage'])->name('registration.showPage')->middleware('guest');
 Route::post('/signup', [RegitrationController::class, 'register'])->name('registration.register')->middleware('guest');
+
+// Recovery
+Route::get('/forgot-password', [ResetPasswordController::class, 'showPage'])->name('password.request')->middleware('guest');
+Route::post('/forgot-password', [ResetPasswordController::class, 'sendEmail'])->name('password.email')->middleware('guest');
+Route::get('/reset-password/{token}', [ResetPasswordController::class, 'resetPasswordForm'])->name('password.reset')->middleware('guest');
+Route::post('/reset-password/{token}', [ResetPasswordController::class, 'updatePassword'])->name('password.update')->middleware('guest');

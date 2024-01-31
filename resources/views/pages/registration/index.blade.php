@@ -13,7 +13,7 @@
                 </svg>
                 <h3 class="fs-2">Dropshare</h3>
             </div>
-            <div class="border rounded p-4" style="min-width: 400px; max-width: 450px;">
+            <div class="border rounded p-4" style="min-width: 360px;">
                 <h1 class="text-center mb-4">Signup</h1>
                 <a class="text-decoration-none d-block border p-2 text-white mb-1" href="#"><i
                         class="bi bi-google p-2"></i>
@@ -30,7 +30,7 @@
                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
                             id="name" aria-describedby="name" value="{{old('name')}}">
                         @error('name')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
@@ -38,7 +38,7 @@
                         <input type="text" name="username" class="form-control @error('username') is-invalid @enderror"
                             id="username" aria-describedby="username" value="{{old('username')}}">
                         @error('username')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
@@ -46,7 +46,7 @@
                         <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                             id="email" aria-describedby="emailHelp" value="{{old('email')}}">
                         @error('email')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
@@ -54,7 +54,7 @@
                         <input type="password" name="password"
                             class="form-control @error('password') is-invalid @enderror" id="password">
                         @error('password')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
@@ -63,7 +63,7 @@
                             class="form-control @error('password_confirmation') is-invalid @enderror"
                             id="password_confirmation">
                         @error('password_confirmation')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
                     <button type="submit" class="btn btn-primary rounded-pill w-100">Submit</button>
@@ -71,7 +71,7 @@
                 <span>By creating an account I agree to <a href="/p/tos">Term of Use</a>, <a
                         href="/p/privacy-policy">Privacy Policy</a>, <a href="/p/data-term"> Data
                         Processing Terms.</a></span>
-                <a class="fs-5 text-decoration-none text-center d-block" href="{{route('auth.signin')}}">Already have an
+                <a class="fs-6 text-decoration-none text-center d-block" href="{{route('auth.signin')}}">Already have an
                     account? Sign
                     in</a>
             </div>
