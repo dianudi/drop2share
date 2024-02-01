@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FilesController;
 use App\Http\Controllers\RegitrationController;
 use App\Http\Controllers\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
@@ -34,3 +35,9 @@ Route::get('/forgot-password', [ResetPasswordController::class, 'showPage'])->na
 Route::post('/forgot-password', [ResetPasswordController::class, 'sendEmail'])->name('password.email')->middleware('guest');
 Route::get('/reset-password/{token}', [ResetPasswordController::class, 'resetPasswordForm'])->name('password.reset')->middleware('guest');
 Route::post('/reset-password/{token}', [ResetPasswordController::class, 'updatePassword'])->name('password.update')->middleware('guest');
+
+
+Route::middleware(['auth'])->group(function () {
+    // File controller
+    Route::resource('my-files', FilesController::class)->parameter('my-files', 'file');
+});

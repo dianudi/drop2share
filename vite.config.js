@@ -10,6 +10,6 @@ export default defineConfig({
         }),
     ],
     server: {
-        hmr: { host: os.hostname },
+        hmr: { host: new URL(process.env.APP_URL).host || os.hostname },
     },
 });
