@@ -13,7 +13,7 @@
                 </svg>
                 <h3 class="fs-2">Dropshare</h3>
             </div>
-            <div class="border rounded p-4" style="min-width: 360px;">
+            <div class="rounded p-4 glass" style="min-width: 360px;">
                 <h1 class="text-center mb-4">Signup</h1>
                 <a class="text-decoration-none d-block border p-2 text-white mb-1" href="#"><i
                         class="bi bi-google p-2"></i>

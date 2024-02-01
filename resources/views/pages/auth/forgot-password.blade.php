@@ -13,7 +13,7 @@
                 </svg>
                 <h3 class="fs-2">Dropshare</h3>
             </div>
-            <div class="border rounded p-4" style="min-width: 360px">
+            <div class="rounded p-4 glass" style="min-width: 360px">
                 <h1 class="text-center fs-4 mb-3">Forgot your password?</h1>
                 <p class="text-center fs-6">Enter your email address and we will send you instructions to reset your
                     password.
