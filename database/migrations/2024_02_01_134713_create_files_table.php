@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('storage_path')->unique();
             $table->integer('total_download')->default(0);
             $table->integer('size')->default(0);
+            $table->string('password')->nullable();
+            $table->dateTime('delete_at')->nullable();
             $table->timestamps();
         });
     }

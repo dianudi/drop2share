@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\FilesController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\RegitrationController;
 use App\Http\Controllers\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
@@ -39,5 +39,5 @@ Route::post('/reset-password/{token}', [ResetPasswordController::class, 'updateP
 
 Route::middleware(['auth'])->group(function () {
     // File controller
-    Route::resource('my-files', FilesController::class)->parameter('my-files', 'file');
+    Route::resource('my-files', FileController::class)->parameter('my-files', 'file');
 });

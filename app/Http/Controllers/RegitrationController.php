@@ -17,5 +17,6 @@ class RegitrationController extends Controller
         $user = new User($request->validated());
         $user->password = Hash::make($request->input('password'));
         $user->save();
+        return to_route('auth.signin');
     }
 }

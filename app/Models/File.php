@@ -9,7 +9,7 @@ class File extends Model
 {
     use HasFactory;
 
-    protected $guard = ['id', 'created_at', 'updated_at'];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
     public function user()
     {
