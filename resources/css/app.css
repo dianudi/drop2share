@@ -4,3 +4,7 @@
     background: rgba(23, 47, 97, 0.096);
     border: 1px solid rgba(255, 255, 255, 0.125);
 }
+
+th > a > p {
+    font-size: 1.3rem;
+}

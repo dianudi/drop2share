@@ -1,5 +1,5 @@
 @extends('templates.base')
-@section('title', 'My Files')
+@section('title', 'Upload File')
 
 @section('content')
 <x-topbar />

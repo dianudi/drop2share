@@ -16,7 +16,7 @@ class FileController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.files.index');
     }
 
     /**
