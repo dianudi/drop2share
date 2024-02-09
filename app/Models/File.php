@@ -11,6 +11,11 @@ class File extends Model
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

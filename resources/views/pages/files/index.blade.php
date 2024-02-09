@@ -12,48 +12,32 @@
                     <i class="bi bi-plus"></i></a>
             </div>
             <div class="d-flex justify-content-between fs-5">
-                <p>Files: <span class="badge text-bg-primary">100</span></p>
-                <p>Sizes: <span class="badge text-bg-success">1GB</span></p>
-                <p>Downloaded: <span class="badge text-bg-info">10k+</span></p>
+                <p>Files: <span class="badge text-bg-primary">{{$context->total_files}}</span></p>
+                <p>Sizes: <span class="badge text-bg-success">{{formatBytes($context->total_size)}}</span></p>
+                <p>Downloaded: <span
+                        class="badge text-bg-info">{{formatNumberInKNotation($context->total_download)}}</span></p>
             </div>
+            {{ $files->links() }}
             <table class="table table-striped">
-                {{-- <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Size</th>
-                        <th scope="col">Uploaded At</th>
-                        <th scope="col">Downloaded</th>
-                    </tr>
-                </thead> --}}
                 <tbody>
+                    @foreach ($files as $file)
                     <tr>
                         <th scope="row">
-                            <a class="text-decoration-none text-white" href="">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> Test File Password<i
-                                        class="bi bi-lock text-warning"></i></p>
-                                <small>Size: 1MB Uploaded: 08 Feb 2024, Downloaded: 1000</small>
+                            <a class="text-decoration-none text-white" href="{{$file->slug}}">
+                                <p class="m-0"><i class="bi bi-file-earmark"></i> {{$file->name}} {{$file->password &&
+                                    '<i class="bi bi-lock text-warning"></i>'}}</p>
+                                <small>Size: {{formatBytes($file->size)}} Uploaded:
+                                    {{$file->created_at->format('d-m-Y')}},
+                                    Downloaded:
+                                    {{formatNumberInKNotation($file->total_download)}}</small>
                             </a>
                         </th>
                     </tr>
-                    <tr>
-                        <th scope="row">
-                            <a class="text-decoration-none text-white" href="">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> Test File Password 2<i
-                                        class="bi bi-lock text-warning"></i></p>
-                                <small>Size: 1MB Uploaded: 08 Feb 2024, Downloaded: 1000</small>
-                            </a>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <a class="text-decoration-none text-white" href="">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> Test File </p>
-                                <small>Size: 1MB Uploaded: 08 Feb 2024, Downloaded: 1000</small>
-                            </a>
-                        </th>
-                    </tr>
+                    @endforeach
+
                 </tbody>
             </table>
+            {{ $files->links() }}
         </div>
     </div>
 </div>

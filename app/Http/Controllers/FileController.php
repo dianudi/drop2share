@@ -6,6 +6,7 @@ use App\Http\Requests\StoreFileRequest;
 use App\Http\Requests\UpdateFileRequest;
 use App\Models\File;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Sqids\Sqids;
 use Illuminate\Support\Str;
 
@@ -16,7 +17,9 @@ class FileController extends Controller
      */
     public function index()
     {
-        return view('pages.files.index');
+        $context = DB::table('files')->selectRaw('count(id) as total_files, sum(size) as total_size, sum(total_download) as total_download')->first();
+        $files = File::where('user_id', '=', Auth::user()->id)->latest()->paginate(15);
+        return view('pages.files.index', compact('files', 'context'));
     }
 
     /**
@@ -37,6 +40,7 @@ class FileController extends Controller
         $file->user_id = Auth::user()->id;
         $file->slug = $sqids->encode([Auth::user()->id, Str::length($request->input('name')), random_int(1, 9000)]);
         $file->storage_path = $request->file('file')->store('files');
+        $file->size = $request->file('file')->getSize();
         $file->save();
         return to_route('my-files.index')->with('status', 'File uploaded');
     }
