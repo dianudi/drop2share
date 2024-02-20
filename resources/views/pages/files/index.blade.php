@@ -8,8 +8,8 @@
         <div class="col col-md-10 mx-auto">
             <div class="d-flex justify-content-between">
                 <h1>My Files</h1>
-                <a class="btn btn-primary rounded my-2" href="{{route('my-files.create')}}"><i class="bi bi-upload"></i>
-                    <i class="bi bi-plus"></i></a>
+                <a class="btn btn-primary rounded my-2" href="{{route('my-files.create')}}"><i class="bi bi-plus"></i><i
+                        class="bi bi-upload"></i></a>
             </div>
             <div class="d-flex justify-content-between fs-5">
                 <p>Files: <span class="badge text-bg-primary">{{$context->total_files}}</span></p>
@@ -23,9 +23,11 @@
                     @foreach ($files as $file)
                     <tr>
                         <th scope="row">
-                            <a class="text-decoration-none text-white" href="{{$file->slug}}">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> {{$file->name}} {{$file->password &&
-                                    '<i class="bi bi-lock text-warning"></i>'}}</p>
+                            <a class="text-decoration-none text-white"
+                                href="{{route('my-files.show', ['file' => $file->slug])}}">
+                                <p class="m-0"><i class="bi bi-file-earmark"></i> {{$file->name}} @if($file->password)
+                                    <i class="bi bi-lock text-warning"></i> @else @endif
+                                </p>
                                 <small>Size: {{formatBytes($file->size)}} Uploaded:
                                     {{$file->created_at->format('d-m-Y')}},
                                     Downloaded:
@@ -41,4 +43,5 @@
         </div>
     </div>
 </div>
+<x-footer />
 @endsection

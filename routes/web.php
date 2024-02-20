@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegitrationController;
 use App\Http\Controllers\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
@@ -41,3 +42,6 @@ Route::middleware(['auth'])->group(function () {
     // File controller
     Route::resource('my-files', FileController::class)->parameter('my-files', 'file');
 });
+
+// Home
+Route::get('/', [HomeController::class, 'index'])->name('home');
