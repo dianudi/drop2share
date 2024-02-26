@@ -13,12 +13,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{request()->path() == 'popular' ? 'active border-bottom border-white' : ''}}"
-                        href="/popular">Popular
+                        href="{{route('popular')}}">Popular
                         Files</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{request()->path() == 'latest' ? 'active border-bottom border-white' : ''}}"
-                        href="/latest">Latest
+                        href="{{route('latest')}}">Latest
                         Upload</a>
                 </li>
                 @if (auth()->check())
@@ -28,12 +28,12 @@
                 </li>
                 @endif
             </ul>
-            <div class="input-group me-5" style="max-width: 500px">
+            {{-- <div class="input-group me-5" style="max-width: 500px">
                 <input type="text" class="form-control border-white" style="background-color: rgba(255, 255, 255, 0.1)"
                     placeholder="Search Files" aria-label="Search Files" aria-describedby="button-addon2">
                 <button class="btn btn-outline-white" type="button" id="button-addon2"><i
                         class="bi bi-search"></i></button>
-            </div>
+            </div> --}}
 
 
             <ul class="navbar-nav mb-2 mb-lg-0 ">

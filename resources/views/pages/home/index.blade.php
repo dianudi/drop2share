@@ -20,7 +20,7 @@
             @if (auth()->check())
             <a href="{{route('my-files.index')}}" class="btn btn-success px-4 gap-3"> Go To My Files</a>
             @else
-            <button type="button" class="btn btn-info px-4">Sign Up</button>
+            <a href="{{route('registration.register')}}" class="btn btn-info px-4">Sign Up</a>
 
             @endif
         </div>
@@ -36,14 +36,14 @@
             <i class="bi bi-hdd-stack text-body-secondary flex-shrink-0 me-3 fs-3"></i>
             <div>
                 <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Unlimited Storage</h3>
-                <p>Paragraph of text beneath the heading to explain the heading.</p>
+                <p>Don't worry about storage limitations, this service has unlimited storage.</p>
             </div>
         </div>
         <div class="col d-flex align-items-start">
             <i class="bi bi-key text-body-secondary flex-shrink-0 me-3 fs-3"></i>
             <div>
                 <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Protected File Share</h3>
-                <p>Paragraph of text beneath the heading to explain the heading.</p>
+                <p>Protect your file using a password for file downloads.</p>
             </div>
         </div>
         <div class="col d-flex align-items-start">
@@ -51,28 +51,28 @@
 
             <div>
                 <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Time-Based File Auto-Deletion</h3>
-                <p>Paragraph of text beneath the heading to explain the heading.</p>
+                <p>We have a feature to allow deleting files automatically if time is expired.</p>
             </div>
         </div>
         <div class="col d-flex align-items-start">
             <i class="bi bi-card-checklist text-body-secondary flex-shrink-0 me-3 fs-3"></i>
             <div>
                 <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Easy File Management</h3>
-                <p>Paragraph of text beneath the heading to explain the heading.</p>
+                <p>Easy to use, like upload, re-download, and delete files.</p>
             </div>
         </div>
         <div class="col d-flex align-items-start">
             <i class="bi bi-window text-body-secondary flex-shrink-0 me-3 fs-3"></i>
             <div>
                 <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">No Pop Up Ads</h3>
-                <p>Paragraph of text beneath the heading to explain the heading.</p>
+                <p>NNo pop-up ad feature has been added.</p>
             </div>
         </div>
         <div class="col d-flex align-items-start">
             <i class="bi bi-bug text-body-secondary flex-shrink-0 me-3 fs-3"></i>
             <div>
                 <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">No Malware</h3>
-                <p>Paragraph of text beneath the heading to explain the heading.</p>
+                <p>No malware embbedded.</p>
             </div>
         </div>
     </div>
@@ -84,7 +84,7 @@
         <div class="col-lg-6 ">
             <div class="d-flex justify-content-between align-items-center mb-1 border-bottom">
                 <h2>Latest Upload</h2>
-                <a href="/latest" class="text-decoration-none fs-5">More</a>
+                <a href="{{route('latest')}}" class="text-decoration-none fs-5">More</a>
             </div>
             <table class="table table-striped">
                 <tbody>
@@ -157,7 +157,7 @@
         <div class="col-lg-6">
             <div class="d-flex justify-content-between align-items-center mb-1 border-bottom">
                 <h2>Popular Files</h2>
-                <a href="/latest" class="text-decoration-none fs-5">More</a>
+                <a href="{{route('popular')}}" class="text-decoration-none fs-5">More</a>
             </div>
             <table class="table table-striped">
                 <tbody>
