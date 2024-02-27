@@ -44,7 +44,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('my-files', FileController::class)->parameter('my-files', 'file');
 });
 
-// Home
+// Visitor
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/popular', [VisitorFileController::class, 'showPopularFiles'])->name('popular');
 Route::get('/latest', [VisitorFileController::class, 'showLatestUploadFiles'])->name('latest');

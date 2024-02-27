@@ -1,5 +1,5 @@
 @extends('templates.base')
-@section('title', 'Home')
+@section('title', 'Drop and share your files easily.')
 
 @section('content')
 <x-topbar />
