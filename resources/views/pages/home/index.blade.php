@@ -28,7 +28,7 @@
 </div>
 {{-- Hero end --}}
 {{-- Features start --}}
-<div class="container px-4 py-5" id="features">
+<div class="container px-4 my-3" id="features">
     <h2 class="pb-2 border-bottom">Features</h2>
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
@@ -78,6 +78,22 @@
     </div>
 </div>
 {{-- Features end --}}
+<div class="container py-2 my-2">
+    <div class="row">
+        <div class="col col-lg-6 mx-auto">
+            <h2 class="text-center">Search File</h2>
+            <form action="{{route('search')}}" method="get">
+                <div class="form-floating mb-3">
+                    <input name="q" type="text" required class="form-control" id="floatingInput"
+                        placeholder="Search...">
+                    <label for="floatingInput">Search</label>
+                </div>
+                <button class="btn btn-primary rounded w-50 mx-auto d-block" type="submit">Search</button>
+
+            </form>
+        </div>
+    </div>
+</div>
 {{-- Files Section start --}}
 <div class="container">
     <div class="row d-flex">

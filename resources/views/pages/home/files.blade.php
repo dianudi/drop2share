@@ -10,13 +10,14 @@
                 <h1>{{$title}}</h1>
             </div>
             {{ $files->links() }}
+            @if (!$files->isEmpty())
             <table class="table table-striped">
                 <tbody>
                     @foreach ($files as $file)
                     <tr>
                         <th scope="row">
                             <a class="text-decoration-none text-white"
-                                href="{{route('my-files.show', ['file' => $file->slug])}}">
+                                href="{{route('showDetailFile', ['file' => $file->slug])}}">
                                 <p class="m-0"><i class="bi bi-file-earmark"></i> {{$file->name}} @if($file->password)
                                     <i class="bi bi-lock text-warning"></i> @else @endif
                                 </p>
@@ -31,6 +32,12 @@
 
                 </tbody>
             </table>
+            @else
+            <div>
+                <p class="text-center fs-3">Currently, the files are not available.</p>
+            </div>
+            @endif
+
             {{ $files->links() }}
         </div>
     </div>

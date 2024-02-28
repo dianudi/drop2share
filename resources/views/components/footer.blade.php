@@ -8,8 +8,7 @@
             @if (auth()->check())
             <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">My Files</a></li>
             @endif
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Term Of Service</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Privacy Policy</a></li>
+
             <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Contact</a></li>
 
