@@ -4,9 +4,10 @@
 @section('content')
 <x-topbar />
 {{-- Hero start --}}
-<div class="px-4  text-center" style="background-image: linear-gradient(120deg, darkviolet, salmon); padding: 100px">
+<div class="container-fluid px-4  text-center"
+    style="background-image: linear-gradient(120deg, darkviolet, salmon); padding: 100px">
     <svg xmlns="http://www.w3.org/2000/svg" width="130" height="130" fill="currentColor"
-        class="bi bi-cloud-download-fill text-info" viewBox="0 0 16 16">
+        class="bi bi-cloud-download-fill text-info bounce-logo" viewBox="0 0 16 16">
         <path
             d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708" />
     </svg>
@@ -28,69 +29,71 @@
 </div>
 {{-- Hero end --}}
 {{-- Features start --}}
-<div class="container px-4 my-3" id="features">
-    <h2 class="pb-2 border-bottom">Features</h2>
+<div style="background-image: linear-gradient(60deg, darkviolet, salmon)">
+    <div class="container px-4 mb-3" id="features">
+        <h2 class="pb-2 border-bottom">Features</h2>
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
-        <div class="col d-flex align-items-start">
-            <i class="bi bi-hdd-stack text-body-secondary flex-shrink-0 me-3 fs-3"></i>
-            <div>
-                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Unlimited Storage</h3>
-                <p>Don't worry about storage limitations, this service has unlimited storage.</p>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+            <div class="col d-flex align-items-start glassmorphs py-2 px-2">
+                <i class="bi bi-hdd-stack text-body-secondary flex-shrink-0 me-3 fs-3"></i>
+                <div>
+                    <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Unlimited Storage</h3>
+                    <p>Don't worry about storage limitations, this service has unlimited storage.</p>
+                </div>
             </div>
-        </div>
-        <div class="col d-flex align-items-start">
-            <i class="bi bi-key text-body-secondary flex-shrink-0 me-3 fs-3"></i>
-            <div>
-                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Protected File Share</h3>
-                <p>Protect your file using a password for file downloads.</p>
+            <div class="col d-flex align-items-start glassmorphs py-2 px-2">
+                <i class="bi bi-key text-body-secondary flex-shrink-0 me-3 fs-3"></i>
+                <div>
+                    <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Protected File Share</h3>
+                    <p>Protect your file using a password for file downloads.</p>
+                </div>
             </div>
-        </div>
-        <div class="col d-flex align-items-start">
-            <i class="bi bi-clock text-body-secondary flex-shrink-0 me-3 fs-3"></i>
+            <div class="col d-flex align-items-start glassmorphs py-2 px-2">
+                <i class="bi bi-clock text-body-secondary flex-shrink-0 me-3 fs-3"></i>
 
-            <div>
-                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Time-Based File Auto-Deletion</h3>
-                <p>We have a feature to allow deleting files automatically if time is expired.</p>
+                <div>
+                    <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Time-Based File Auto-Deletion</h3>
+                    <p>We have a feature to allow deleting files automatically if time is expired.</p>
+                </div>
             </div>
-        </div>
-        <div class="col d-flex align-items-start">
-            <i class="bi bi-card-checklist text-body-secondary flex-shrink-0 me-3 fs-3"></i>
-            <div>
-                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Easy File Management</h3>
-                <p>Easy to use, like upload, re-download, and delete files.</p>
+            <div class="col d-flex align-items-start glassmorphs py-2 px-2">
+                <i class="bi bi-card-checklist text-body-secondary flex-shrink-0 me-3 fs-3"></i>
+                <div>
+                    <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Easy File Management</h3>
+                    <p>Easy to use, like upload, re-download, and delete files.</p>
+                </div>
             </div>
-        </div>
-        <div class="col d-flex align-items-start">
-            <i class="bi bi-window text-body-secondary flex-shrink-0 me-3 fs-3"></i>
-            <div>
-                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">No Pop Up Ads</h3>
-                <p>NNo pop-up ad feature has been added.</p>
+            <div class="col d-flex align-items-start glassmorphs py-2 px-2">
+                <i class="bi bi-window text-body-secondary flex-shrink-0 me-3 fs-3"></i>
+                <div>
+                    <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">No Pop Up Ads</h3>
+                    <p>NNo pop-up ad feature has been added.</p>
+                </div>
             </div>
-        </div>
-        <div class="col d-flex align-items-start">
-            <i class="bi bi-bug text-body-secondary flex-shrink-0 me-3 fs-3"></i>
-            <div>
-                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">No Malware</h3>
-                <p>No malware embbedded.</p>
+            <div class="col d-flex align-items-start glassmorphs py-2 px-2">
+                <i class="bi bi-bug text-body-secondary flex-shrink-0 me-3 fs-3"></i>
+                <div>
+                    <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">No Malware</h3>
+                    <p>No malware embbedded.</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-{{-- Features end --}}
-<div class="container py-2 my-2">
-    <div class="row">
-        <div class="col col-lg-6 mx-auto">
-            <h2 class="text-center">Search File</h2>
-            <form action="{{route('search')}}" method="get">
-                <div class="form-floating mb-3">
-                    <input name="q" type="text" required class="form-control" id="floatingInput"
-                        placeholder="Search...">
-                    <label for="floatingInput">Search</label>
-                </div>
-                <button class="btn btn-primary rounded w-50 mx-auto d-block" type="submit">Search</button>
+    {{-- Features end --}}
+    <div class="container py-2 my-2">
+        <div class="row">
+            <div class="col col-lg-6 mx-auto">
+                <h2 class="text-center">Search File</h2>
+                <form action="{{route('search')}}" method="get">
+                    <div class="form-floating mb-3">
+                        <input name="q" type="text" required class="form-control" id="floatingInput"
+                            placeholder="Search...">
+                        <label for="floatingInput">Search</label>
+                    </div>
+                    <button class="btn btn-primary rounded w-50 mx-auto d-block" type="submit">Search</button>
 
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -104,68 +107,20 @@
             </div>
             <table class="table table-striped">
                 <tbody>
-                    {{-- @foreach ($files as $file) --}}
+                    @foreach ($latestFiles as $file)
                     <tr>
                         <th scope="row">
-                            <a class="text-decoration-none text-white" href="#">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> Test File
+                            <a class="text-decoration-none text-white"
+                                href="{{route('showDetailFile', ['file' => $file->slug])}}">
+                                <p class="m-0"><i class="bi bi-file-earmark"></i> {{$file->name}}
                                 </p>
-                                <small>Size: 1MB Uploaded:
-                                    20-02-2024,
-                                    Downloaded:
-                                    1k+</small>
+                                <small>Size: {{formatBytes($file->size)}} Uploaded:
+                                    {{$file->created_at->format('d-m-Y')}},
+                                    Downloaded: {{formatNumberInKNotation($file->total_download)}}</small>
                             </a>
                         </th>
                     </tr>
-                    <tr>
-                        <th scope="row">
-                            <a class="text-decoration-none text-white" href="#">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> Test File
-                                </p>
-                                <small>Size: 1MB Uploaded:
-                                    20-02-2024,
-                                    Downloaded:
-                                    1k+</small>
-                            </a>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <a class="text-decoration-none text-white" href="#">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> Test File
-                                </p>
-                                <small>Size: 1MB Uploaded:
-                                    20-02-2024,
-                                    Downloaded:
-                                    1k+</small>
-                            </a>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <a class="text-decoration-none text-white" href="#">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> Test File
-                                </p>
-                                <small>Size: 1MB Uploaded:
-                                    20-02-2024,
-                                    Downloaded:
-                                    1k+</small>
-                            </a>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <a class="text-decoration-none text-white" href="#">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> Test File
-                                </p>
-                                <small>Size: 1MB Uploaded:
-                                    20-02-2024,
-                                    Downloaded:
-                                    1k+</small>
-                            </a>
-                        </th>
-                    </tr>
-                    {{-- @endforeach --}}
+                    @endforeach
 
                 </tbody>
             </table>
@@ -177,68 +132,20 @@
             </div>
             <table class="table table-striped">
                 <tbody>
-                    {{-- @foreach ($files as $file) --}}
+                    @foreach ($popularFiles as $file)
                     <tr>
                         <th scope="row">
-                            <a class="text-decoration-none text-white" href="#">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> Test File
+                            <a class="text-decoration-none text-white"
+                                href="{{route('showDetailFile', ['file' => $file->slug])}}">
+                                <p class="m-0"><i class="bi bi-file-earmark"></i> {{$file->name}}
                                 </p>
-                                <small>Size: 1MB Uploaded:
-                                    20-02-2024,
-                                    Downloaded:
-                                    1k+</small>
+                                <small>Size: {{formatBytes($file->size)}} Uploaded:
+                                    {{$file->created_at->format('d-m-Y')}},
+                                    Downloaded: {{formatNumberInKNotation($file->total_download)}}</small>
                             </a>
                         </th>
                     </tr>
-                    <tr>
-                        <th scope="row">
-                            <a class="text-decoration-none text-white" href="#">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> Test File
-                                </p>
-                                <small>Size: 1MB Uploaded:
-                                    20-02-2024,
-                                    Downloaded:
-                                    1k+</small>
-                            </a>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <a class="text-decoration-none text-white" href="#">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> Test File
-                                </p>
-                                <small>Size: 1MB Uploaded:
-                                    20-02-2024,
-                                    Downloaded:
-                                    1k+</small>
-                            </a>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <a class="text-decoration-none text-white" href="#">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> Test File
-                                </p>
-                                <small>Size: 1MB Uploaded:
-                                    20-02-2024,
-                                    Downloaded:
-                                    1k+</small>
-                            </a>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <a class="text-decoration-none text-white" href="#">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> Test File
-                                </p>
-                                <small>Size: 1MB Uploaded:
-                                    20-02-2024,
-                                    Downloaded:
-                                    1k+</small>
-                            </a>
-                        </th>
-                    </tr>
-                    {{-- @endforeach --}}
+                    @endforeach
 
                 </tbody>
             </table>

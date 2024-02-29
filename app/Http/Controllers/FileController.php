@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateFileRequest;
 use App\Models\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Sqids\Sqids;
 use Illuminate\Support\Str;
 
@@ -50,23 +51,7 @@ class FileController extends Controller
      */
     public function show(File $file)
     {
-        return $file;
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(File $file)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateFileRequest $request, File $file)
-    {
-        //
+        return view('pages.home.file', compact('file'));
     }
 
     /**
@@ -74,6 +59,8 @@ class FileController extends Controller
      */
     public function destroy(File $file)
     {
-        //
+        if (Storage::exists($file->storage_path)) Storage::delete($file->storage_path);
+        $file->delete();
+        return back();
     }
 }

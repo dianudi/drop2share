@@ -21,9 +21,10 @@
                                 <p class="m-0"><i class="bi bi-file-earmark"></i> {{$file->name}} @if($file->password)
                                     <i class="bi bi-lock text-warning"></i> @else @endif
                                 </p>
-                                <small>Size: {{formatBytes($file->size)}} Uploaded:
-                                    {{$file->created_at->format('d-m-Y')}},
-                                    Downloaded:
+                                <small>
+                                    {{formatBytes($file->size)}} /
+                                    {{$file->created_at->format('d M Y')}} /
+                                    <i class="bi bi-download"></i>
                                     {{formatNumberInKNotation($file->total_download)}}</small>
                             </a>
                         </th>
