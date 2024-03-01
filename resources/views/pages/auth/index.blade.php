@@ -13,7 +13,7 @@
                 </svg>
                 <h3 class="fs-3">Dropshare</h3>
             </div>
-            <div class="rounded p-4 glass" style="min-width: 360px;">
+            <div class="rounded py-4 px-3 glass" style="min-width: 360px;">
                 <h1 class="text-center mb-4">Signin</h1>
                 <a class="text-decoration-none d-block border p-2 text-white mb-1" href="#"><i
                         class="bi bi-google p-2"></i>
@@ -30,7 +30,8 @@
                     </div>
                     @endif
                     @error('email')
-                    <div class="alert alert-danger my-2">{{ $message }}</div>
+                    <div class="alert alert-danger text-center mx-auto" style="max-width: 300px">{{ $message }}
+                    </div>
                     @enderror
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
@@ -43,7 +44,8 @@
                             <a href="{{route('password.request')}}" class="text-decoration-none">Forgot Password?</a>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" name="password" class="form-control" id="password"
+                            <input type="password" name="password"
+                                class="form-control @error('password') is-invalid @enderror" id="password"
                                 aria-describedby="button-addon2">
                             <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
                                     class="bi bi-eye text-white show-hide-eye p-1"></i></button>

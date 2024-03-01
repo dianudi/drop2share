@@ -32,7 +32,7 @@ th > a > p {
 }
 
 .bounce-logo {
-    animation: bounce-anim 2s ease-in-out 5s infinite alternate-reverse forwards;
+    animation: bounce-anim 2s ease-in-out 0s infinite alternate-reverse forwards;
 }
 @keyframes bounce-anim {
     0% {

@@ -28,6 +28,12 @@
                         <td scope="col">{{$file->created_at->diffForHumans()}}</td>
                     </tr>
                     <tr>
+                        <td scope="col">User:</td>
+                        <td scope="col"><a class="text-decoration-none"
+                                href="{{route('detailUserFiles', ['user' => $file->user->name])}}">{{$file->user->name}}</a>
+                        </td>
+                    </tr>
+                    <tr>
                         <td scope="col">Downloaded:</td>
                         <td scope="col">{{$file->total_download}}</td>
                     </tr>

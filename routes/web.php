@@ -49,5 +49,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/popular', [VisitorFileController::class, 'showPopularFiles'])->name('popular');
 Route::get('/latest', [VisitorFileController::class, 'showLatestUploadFiles'])->name('latest');
 Route::get('/search', [VisitorFileController::class, 'searchFiles'])->name('search');
+Route::get('/u/{user}', [VisitorFileController::class, 'detailUserFiles'])->name('detailUserFiles');
 Route::get('/{file}', [VisitorFileController::class, 'showDetailFile'])->name('showDetailFile');
 Route::get('/{file}/download', [VisitorFileController::class, 'downloadFile'])->name('downloadFile');

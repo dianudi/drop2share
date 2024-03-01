@@ -32,7 +32,6 @@
 <div style="background-image: linear-gradient(60deg, darkviolet, salmon)">
     <div class="container px-4 mb-3" id="features">
         <h2 class="pb-2 border-bottom">Features</h2>
-
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
             <div class="col d-flex align-items-start glassmorphs py-2 px-2">
                 <i class="bi bi-hdd-stack text-body-secondary flex-shrink-0 me-3 fs-3"></i>
@@ -67,7 +66,7 @@
                 <i class="bi bi-window text-body-secondary flex-shrink-0 me-3 fs-3"></i>
                 <div>
                     <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">No Pop Up Ads</h3>
-                    <p>NNo pop-up ad feature has been added.</p>
+                    <p>No pop-up ad feature has been added.</p>
                 </div>
             </div>
             <div class="col d-flex align-items-start glassmorphs py-2 px-2">
@@ -112,7 +111,7 @@
                         <th scope="row">
                             <a class="text-decoration-none text-white"
                                 href="{{route('showDetailFile', ['file' => $file->slug])}}">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> {{$file->name}}
+                                <p class="m-0 text-break"><i class="bi bi-file-earmark"></i> {{$file->name}}
                                 </p>
                                 <small>Size: {{formatBytes($file->size)}} Uploaded:
                                     {{$file->created_at->format('d-m-Y')}},
@@ -137,7 +136,7 @@
                         <th scope="row">
                             <a class="text-decoration-none text-white"
                                 href="{{route('showDetailFile', ['file' => $file->slug])}}">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> {{$file->name}}
+                                <p class="m-0 text-break"><i class="bi bi-file-earmark"></i> {{$file->name}}
                                 </p>
                                 <small>Size: {{formatBytes($file->size)}} Uploaded:
                                     {{$file->created_at->format('d-m-Y')}},

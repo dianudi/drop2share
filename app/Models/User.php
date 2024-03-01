@@ -43,4 +43,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getRouteKeyName(): string
+    {
+        return 'username';
+    }
+
+    public function files()
+    {
+        return $this->hasMany(File::class);
+    }
 }

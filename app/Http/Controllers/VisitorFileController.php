@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\File;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -41,5 +42,10 @@ class VisitorFileController extends Controller
             $file->update(['total_download' => $file->total_download + 1]);
         }, 5);
         return Storage::download($file->storage_path, $file->name);
+    }
+
+    public function detailUserFiles(User $user)
+    {
+        return view('pages.home.detailUserFiles', compact('user'));
     }
 }
