@@ -45,8 +45,6 @@
                         {{auth()->user()->name}}
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Profile Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Administration Site</a></li>
                         <li>
                             <form action="{{route('auth.signout')}}" method="POST">
                                 @csrf

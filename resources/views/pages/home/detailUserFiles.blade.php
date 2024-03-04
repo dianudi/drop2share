@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <h2 class="my-2">Files</h2>
+            <h2 class="my-2">Latest Uploaded Files</h2>
             @if (!$user->files->isEmpty())
             <table class="table table-striped">
                 <tbody>

@@ -1,5 +1,5 @@
 <?php
-function formatBytes($size, $precision = 2)
+function formatBytes($size, $precision = 2): string
 {
     $base = log($size, 1024);
     $suffixes = array('', 'K', 'M', 'G', 'T');
