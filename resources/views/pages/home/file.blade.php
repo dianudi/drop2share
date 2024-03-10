@@ -40,8 +40,20 @@
 
                 </tbody>
             </table>
+            @if (session()->has('errorUnlockFile'))
+            <div class="alert alert-danger" role="alert">
+                {{session('errorUnlockFile')}}
+            </div>
+            @endif
+
+
+            @if ($file->password && !session()->has('fileId'))
+            <button class="btn btn-primary rounded-pill mx-auto w-100 py-2 px-4" data-bs-toggle="modal"
+                data-bs-target="#unlockFileModal">Unlock</button>
+            @else
             <a class="text-decoration-none btn btn-primary rounded-pill mx-auto py-2 px-4 d-block"
                 href="{{route('downloadFile', ['file' => $file->slug])}}">Download</a>
+            @endif
             <div class="my-3">
                 <h3>Share</h3>
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{request()->fullUrl()}}"><i
@@ -59,5 +71,6 @@
         </div>
     </div>
 </div>
+<x-unlock-file-modal slug="{{$file->slug}}" />
 <x-footer />
 @endsection

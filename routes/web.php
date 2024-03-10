@@ -51,4 +51,5 @@ Route::get('/latest', [VisitorFileController::class, 'showLatestUploadFiles'])->
 Route::get('/search', [VisitorFileController::class, 'searchFiles'])->name('search');
 Route::get('/u/{user}', [VisitorFileController::class, 'detailUserFiles'])->name('detailUserFiles');
 Route::get('/{file}', [VisitorFileController::class, 'showDetailFile'])->name('showDetailFile');
+Route::post('/{file}', [VisitorFileController::class, 'unlockDownloadFile'])->name('unlockDownloadFile');
 Route::get('/{file}/download', [VisitorFileController::class, 'downloadFile'])->name('downloadFile');

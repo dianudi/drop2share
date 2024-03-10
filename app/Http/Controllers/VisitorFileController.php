@@ -36,11 +36,22 @@ class VisitorFileController extends Controller
         return view('pages.home.file', compact('file'));
     }
 
-    public function downloadFile(File $file)
+    public function unlockDownloadFile(Request $request, File $file)
+    {
+        $validated = $request->validate(['password' => 'required']);
+        if ($validated['password'] !== $file->password) {
+            return back()->with('errorUnlockFile', 'Invalid Unlock Password');
+        }
+        $request->session()->put('fileId', $file->id);
+        return back();
+    }
+
+    public function downloadFile(Request $request, File $file)
     {
         DB::transaction(function () use ($file) {
             $file->update(['total_download' => $file->total_download + 1]);
         }, 5);
+        $request->session()->forget('fileId');
         return Storage::download($file->storage_path, $file->name);
     }
 

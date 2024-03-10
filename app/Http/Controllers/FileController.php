@@ -19,7 +19,7 @@ class FileController extends Controller
     public function index()
     {
         $context = DB::table('files')->selectRaw('count(id) as total_files, sum(size) as total_size, sum(total_download) as total_download')->first();
-        $files = File::where('user_id', '=', Auth::user()->id)->latest()->paginate(15);
+        $files = File::where('user_id', Auth::user()->id)->latest()->paginate(15);
         return view('pages.files.index', compact('files', 'context'));
     }
 
