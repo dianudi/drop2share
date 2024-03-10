@@ -46,6 +46,9 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
+                            <a href="" class="dropdown-item">Account</a>
+                        </li>
+                        <li>
                             <form action="{{route('auth.signout')}}" method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -54,6 +57,7 @@
 
                             </form>
                         </li>
+
 
                     </ul>
                     @else
