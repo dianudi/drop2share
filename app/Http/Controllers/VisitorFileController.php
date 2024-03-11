@@ -27,8 +27,8 @@ class VisitorFileController extends Controller
     public function searchFiles(Request $request)
     {
         $files = File::select('*')->where('name', 'like', '%' . $request->query('q') . '%')->paginate(15);
-        $title = 'Search File';
-        return view('pages.home.files', compact('files', 'title'));
+        $query = $request->query('q');
+        return view('pages.home.search', compact('files', 'query'));
     }
 
     public function showDetailFile(File $file)

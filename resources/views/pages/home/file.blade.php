@@ -55,7 +55,7 @@
                 href="{{route('downloadFile', ['file' => $file->slug])}}">Download</a>
             @endif
             <div class="my-3">
-                <h3>Share</h3>
+                <h3>Share on</h3>
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{request()->fullUrl()}}"><i
                         class="bi bi-facebook" style="font-size: 35px"></i></a>
                 <a href="whatsapp://send/?text={{request()->fullUrl()}}"><i class="bi bi-whatsapp mx-2 text-success"
