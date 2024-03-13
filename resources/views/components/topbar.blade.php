@@ -46,7 +46,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="" class="dropdown-item">Account</a>
+                            <a href="{{route('account')}}" class="dropdown-item">Account</a>
                         </li>
                         <li>
                             <form action="{{route('auth.signout')}}" method="POST">

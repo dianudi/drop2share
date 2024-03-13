@@ -6,9 +6,6 @@
 <div class="container mt-2">
     <div class="row">
         <div class="col col-md-10 mx-auto">
-            <div class="d-flex justify-content-between">
-                <h1>{{$title}}</h1>
-            </div>
             {{ $files->links() }}
             @if (!$files->isEmpty())
             <table class="table table-striped">

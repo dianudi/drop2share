@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
@@ -35,13 +36,19 @@ Route::post('/signup', [RegitrationController::class, 'register'])->name('regist
 // Recovery
 Route::get('/forgot-password', [ResetPasswordController::class, 'showPage'])->name('password.request')->middleware('guest');
 Route::post('/forgot-password', [ResetPasswordController::class, 'sendEmail'])->name('password.email')->middleware('guest');
-Route::get('/reset-password/{token}', [ResetPasswordController::class, 'resetPasswordForm'])->name('password.reset')->middleware('guest');
-Route::post('/reset-password/{token}', [ResetPasswordController::class, 'updatePassword'])->name('password.update')->middleware('guest');
+Route::get('/reset-password/{token}', [ResetPasswordController::class, 'resetPasswordForm'])->name('password.reset');
+Route::post('/reset-password/{token}', [ResetPasswordController::class, 'updatePassword'])->name('password.update');
 
 
 Route::middleware(['auth'])->group(function () {
     // File controller
     Route::resource('my-files', FileController::class)->parameter('my-files', 'file');
+    Route::get('/account', [AccountController::class, 'detailAccount'])->name('account');
+    Route::delete('/account', [AccountController::class, 'deleteAccountAndFiles'])->name('account.delete');
+    Route::patch('/account', [AccountController::class, 'updateAccount'])->name('account.update');
+    Route::patch('/account/email', [AccountController::class, 'updateEmail'])->name('account.email');
+    Route::patch('/account/password', [AccountController::class, 'updatePassword'])->name('account.password');
+    Route::get('/account/recovery', [AccountController::class, 'recoveryPassword'])->middleware('throttle:requestReset')->name('account.recovery');
 });
 
 // Visitor
