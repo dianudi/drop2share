@@ -15,8 +15,7 @@ return [
     |
     */
 
-    'default' => env('CACHE_DRIVER', 'file'),
-
+    'default' => env('CACHE_STORE', 'database'),
     /*
     |--------------------------------------------------------------------------
     | Cache Stores
@@ -33,9 +32,6 @@ return [
 
     'stores' => [
 
-        'apc' => [
-            'driver' => 'apc',
-        ],
 
         'array' => [
             'driver' => 'array',
@@ -44,9 +40,9 @@ return [
 
         'database' => [
             'driver' => 'database',
-            'table' => 'cache',
-            'connection' => null,
-            'lock_connection' => null,
+            'table' => env('DB_CACHE_TABLE', 'cache'),
+            'connection' => env('DB_CACHE_CONNECTION', null),
+            'lock_connection' => env('DB_CACHE_LOCK_CONNECTION', null),
         ],
 
         'file' => [
@@ -76,8 +72,8 @@ return [
 
         'redis' => [
             'driver' => 'redis',
-            'connection' => 'cache',
-            'lock_connection' => 'default',
+            'connection' => env('REDIS_CACHE_CONNECTION', 'cache'),
+            'lock_connection' => env('REDIS_CACHE_LOCK_CONNECTION', 'default'),
         ],
 
         'dynamodb' => [
@@ -106,6 +102,6 @@ return [
     |
     */
 
-    'prefix' => env('CACHE_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_cache_'),
+    'prefix' => env('CACHE_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_cache_'),
 
 ];
