@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePageRequest;
 use App\Http\Requests\UpdatePageRequest;
 use App\Models\Page;
+use Illuminate\Support\Facades\Gate;
 
 class PageController extends Controller
 {
+    public function __construct()
+    {
+        if (!Gate::allows('adminOnly')) {
+            abort(403);
+        }
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
@@ -40,6 +41,7 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/account/password', [AccountController::class, 'updatePassword'])->name('account.password');
     Route::get('/account/recovery', [AccountController::class, 'recoveryPassword'])->middleware('throttle:requestReset')->name('account.recovery');
     Route::resource('pages', PageController::class);
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 });
 
 // Visitor

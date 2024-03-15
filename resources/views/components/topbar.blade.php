@@ -48,6 +48,11 @@
                         <li>
                             <a href="{{route('account')}}" class="dropdown-item">Account</a>
                         </li>
+                        @if (auth()->user()->role === 'admin')
+                        <li>
+                            <a href="{{route('admin.index')}}" class="dropdown-item">Site Administration</a>
+                        </li>
+                        @endif
                         <li>
                             <form action="{{route('auth.signout')}}" method="POST">
                                 @csrf
