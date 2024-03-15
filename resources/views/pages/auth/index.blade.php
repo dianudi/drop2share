@@ -15,10 +15,11 @@
             </div>
             <div class="rounded py-4 px-3 glass" style="min-width: 360px;">
                 <h1 class="text-center mb-4">Signin</h1>
-                <a class="text-decoration-none d-block border p-2 text-white mb-1" href="#"><i
-                        class="bi bi-google p-2"></i>
+                <a class="text-decoration-none d-block border p-2 text-white mb-1"
+                    href="{{route('auth.socialite', ['driver' => 'google'])}}"><i class="bi bi-google p-2"></i>
                     Continue with Google</a>
-                <a class="text-decoration-none d-block border p-2 text-white" href="#"><i
+                <a class="text-decoration-none d-block border p-2 text-white"
+                    href="{{route('auth.socialite', ['driver' => 'facebook'])}}"><i
                         class="bi bi-facebook text-info p-2"></i>
                     Continue with Facebook</a>
                 <span class="my-2 d-block text-center fs-6">OR</span>

@@ -4,9 +4,11 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\RegitrationController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\VisitorFileController;
+use App\Http\Controllers\VisitorPageController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -14,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/signin', [AuthController::class, 'showPage'])->name('auth.showPage')->middleware('guest');
 Route::post('/signin', [AuthController::class, 'signin'])->name('auth.signin')->middleware('guest');
 Route::delete('/signout', [AuthController::class, 'signout'])->name('auth.signout')->middleware('auth');
+Route::get('/auth/{driver}', [AuthController::class, 'useSocialite'])->name('auth.socialite')->middleware('guest');
+Route::get('/auth/{driver}/callback', [AuthController::class, 'socialiteCallback'])->name('auth.socialite.callback')->middleware('guest');
 
 // Registration
 Route::get('/signup', [RegitrationController::class, 'showPage'])->name('registration.showPage')->middleware('guest');
@@ -35,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/account/email', [AccountController::class, 'updateEmail'])->name('account.email');
     Route::patch('/account/password', [AccountController::class, 'updatePassword'])->name('account.password');
     Route::get('/account/recovery', [AccountController::class, 'recoveryPassword'])->middleware('throttle:requestReset')->name('account.recovery');
+    Route::resource('pages', PageController::class);
 });
 
 // Visitor
@@ -42,6 +47,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/popular', [VisitorFileController::class, 'showPopularFiles'])->name('popular');
 Route::get('/latest', [VisitorFileController::class, 'showLatestUploadFiles'])->name('latest');
 Route::get('/search', [VisitorFileController::class, 'searchFiles'])->name('search');
+Route::get('/p/{page}', [VisitorPageController::class], 'show')->name('page.show');
 Route::get('/u/{user}', [VisitorFileController::class, 'detailUserFiles'])->name('detailUserFiles');
 Route::get('/{file}', [VisitorFileController::class, 'showDetailFile'])->name('showDetailFile');
 Route::post('/{file}', [VisitorFileController::class, 'unlockDownloadFile'])->name('unlockDownloadFile');

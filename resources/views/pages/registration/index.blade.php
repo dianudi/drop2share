@@ -15,10 +15,11 @@
             </div>
             <div class="rounded p-4 glass" style="min-width: 360px;">
                 <h1 class="text-center mb-4">Signup</h1>
-                <a class="text-decoration-none d-block border p-2 text-white mb-1" href="#"><i
-                        class="bi bi-google p-2"></i>
+                <a class="text-decoration-none d-block border p-2 text-white mb-1"
+                    href="{{route('auth.socialite', ['driver' => 'google'])}}"><i class="bi bi-google p-2"></i>
                     Continue with Google</a>
-                <a class="text-decoration-none d-block border p-2 text-white" href="#"><i
+                <a class="text-decoration-none d-block border p-2 text-white"
+                    href="{{route('auth.socialite', ['driver' => 'facebook'])}}"><i
                         class="bi bi-facebook text-info fs-5 p-2"></i>
                     Continue with Facebook</a>
                 <span class="my-2 d-block text-center fs-6">OR</span>
@@ -68,8 +69,9 @@
                     </div>
                     <button type="submit" class="btn btn-primary rounded-pill w-100">Submit</button>
                 </form>
-                <span>By creating an account I agree to <a href="/p/tos">Term of Use</a>, <a
-                        href="/p/privacy-policy">Privacy Policy</a>, <a href="/p/data-term"> Data
+                <span>By creating an account I agree to <a href="{{route('page.show', ['page' => 'term-of-use'])}}">Term
+                        of Use</a>, <a href="{{route('page.show', ['page' => 'privacy-policy'])}}">Privacy Policy</a>,
+                    <a href="{{route('page.show', ['page' => 'data-term'])}}"> Data
                         Processing Terms.</a></span>
                 <a class="fs-6 text-decoration-none text-center d-block" href="{{route('auth.signin')}}">Already have an
                     account? Sign
