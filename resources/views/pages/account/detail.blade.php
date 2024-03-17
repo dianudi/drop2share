@@ -152,17 +152,16 @@
                 <div class="card-body">
                     <h5 class="card-title">Delete Account</h5>
                     <p class="card-text">This will Delete your account and all uploaded files.</p>
-                    <form action="{{route('account.delete')}}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-outline-danger">Delete
-                            Account</button>
-                    </form>
+                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                        data-bs-target="#confirmDeletion">
+                        Delete
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 </div>
+<x-confirm-deletion-modal />
 <x-footer />
 @endsection
