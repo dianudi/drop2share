@@ -47,7 +47,8 @@
                         <th scope="row">
                             <a class="text-decoration-none text-white"
                                 href="{{route('showDetailFile', ['file' => $file->slug])}}">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> {{$file->name}} @if($file->password)
+                                <p class="m-0"><i class="bi bi-file-earmark"></i> {{str($file->name)->limit(60)}}
+                                    @if($file->password)
                                     <i class="bi bi-lock text-warning"></i> @else @endif
                                 </p>
                                 <small>

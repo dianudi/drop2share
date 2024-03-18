@@ -73,7 +73,7 @@
                 <i class="bi bi-bug text-body-secondary flex-shrink-0 me-3 fs-3"></i>
                 <div>
                     <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">No Malware</h3>
-                    <p>No malware embbedded.</p>
+                    <p>No malware embedded.</p>
                 </div>
             </div>
         </div>
@@ -111,7 +111,8 @@
                         <th scope="row">
                             <a class="text-decoration-none text-white"
                                 href="{{route('showDetailFile', ['file' => $file->slug])}}">
-                                <p class="m-0 text-break"><i class="bi bi-file-earmark"></i> {{$file->name}}
+                                <p class="m-0 text-break"><i class="bi bi-file-earmark"></i>
+                                    {{str($file->name)->limit(60)}}
                                 </p>
                                 <small>Size: {{formatBytes($file->size)}} Uploaded:
                                     {{$file->created_at->format('d-m-Y')}},
@@ -136,7 +137,8 @@
                         <th scope="row">
                             <a class="text-decoration-none text-white"
                                 href="{{route('showDetailFile', ['file' => $file->slug])}}">
-                                <p class="m-0 text-break"><i class="bi bi-file-earmark"></i> {{$file->name}}
+                                <p class="m-0 text-break"><i class="bi bi-file-earmark"></i>
+                                    {{str($file->name)->limit(60)}}
                                 </p>
                                 <small>Size: {{formatBytes($file->size)}} Uploaded:
                                     {{$file->created_at->format('d-m-Y')}},
