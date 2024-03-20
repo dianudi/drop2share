@@ -43,6 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('admin.index');
         Route::get('/files', [AdminController::class, 'indexFile'])->name('admin.files');
+        Route::get('/files/{file}', [AdminController::class, 'detailFile'])->name('admin.files.detail');
         Route::get('/accounts', [AdminController::class, 'indexAccount'])->name('admin.accounts');
         Route::resource('pages', PageController::class);
     });
