@@ -1,6 +1,5 @@
 @extends('templates.base')
 @section('title', 'My Files')
-
 @section('content')
 <x-topbar />
 <div class="container mt-2">
@@ -8,7 +7,7 @@
         <div class="col col-md-10 mx-auto">
             <div class="d-flex justify-content-between">
                 <h1>My Files</h1>
-                <a class="btn btn-primary rounded my-2" href="{{route('my-files.create')}}"><i class="bi bi-plus"></i><i
+                <a class="btn btn-primary rounded my-2" href="{{route('my-files.create')}}"><i
                         class="bi bi-upload"></i></a>
             </div>
             <div class="d-flex justify-content-between fs-5">

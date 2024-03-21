@@ -46,6 +46,7 @@ class AccountController extends Controller
 
     public function updatePassword(Request $request)
     {
+        // validate optional password
         $validated = $request->validate([
             'current_password' => 'required|current_password:web',
             'password' => ['required', 'confirmed', PasswordValidation::min(8)->mixedCase()->numbers()]

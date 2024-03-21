@@ -10,7 +10,7 @@
     @endif
     <div class="row">
         <div class="col-xs-12 col-lg-6 mb-1">
-            <div class="fs-3">Information</div>
+            <div class="fs-3">Basic Information</div>
             <ul class="list-group">
                 <li class="list-group-item">Account Name: {{$user->name}}</li>
                 <li class="list-group-item">Username: {{$user->username}}</li>
@@ -57,8 +57,6 @@
                     </form>
                 </div>
             </div>
-
-
         </div>
         <div class="col-xs-12 col-lg-6">
             <div class="fs-3">Credential</div>
@@ -111,6 +109,7 @@
                     <form method="POST" action="{{route('account.password')}}">
                         @csrf
                         @method('PATCH')
+                        @if ($user->password)
                         <div class="form-floating clearfix">
                             <input type="password" name="current_password"
                                 class="form-control @error('current_password') is-invalid @enderror"
@@ -124,6 +123,7 @@
                                     Password?</a>
                             </div>
                         </div>
+                        @endif
                         <div class="form-floating mb-3">
                             <input type="password" name="password"
                                 class="form-control @error('password') is-invalid @enderror" id="newPassword"

@@ -63,4 +63,5 @@
     {{ $files->links() }}
 
 </div>
+<x-footer />
 @endsection

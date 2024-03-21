@@ -14,7 +14,6 @@
             </svg>
             <table class="table table-striped">
                 <tbody>
-
                     <tr>
                         <td scope="col">Name:</td>
                         <td scope="col">{{$file->name}}</td>
@@ -40,12 +39,12 @@
 
                 </tbody>
             </table>
+            {{-- Session for unlock file --}}
             @if (session()->has('errorUnlockFile'))
             <div class="alert alert-danger" role="alert">
                 {{session('errorUnlockFile')}}
             </div>
             @endif
-
 
             @if ($file->password && !session()->has('fileId'))
             <button class="btn btn-primary rounded-pill mx-auto w-100 py-2 px-4" data-bs-toggle="modal"
@@ -71,6 +70,8 @@
         </div>
     </div>
 </div>
+@if ($file->password)
 <x-unlock-file-modal slug="{{$file->slug}}" />
+@endif
 <x-footer />
 @endsection

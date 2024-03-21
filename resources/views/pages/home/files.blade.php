@@ -1,6 +1,5 @@
 @extends('templates.base')
 @section('title', $title)
-
 @section('content')
 <x-topbar />
 <div class="container mt-2">
@@ -36,7 +35,6 @@
                 <p class="text-center fs-3">Currently, the files are not available.</p>
             </div>
             @endif
-
             {{ $files->links() }}
         </div>
     </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="{{config('app.locale')}}" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
     @vite(['resources/sass/app.scss', 'resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     @yield('content')
 </body>
 

@@ -1,6 +1,5 @@
 @extends('templates.base')
-@section('title', 'Upload File')
-
+@section('title', 'Upload New File')
 @section('content')
 <x-topbar />
 <div class="container mt-2">
@@ -17,7 +16,6 @@
                     <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror
                 </div>
-
                 <div class="form-floating mb-3">
                     <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
                         id="floatingInput" value="{{old('name')}}" placeholder="lorem ipsum">

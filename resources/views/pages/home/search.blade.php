@@ -7,7 +7,8 @@
         <div class="col col-md-10 mx-auto">
             <div class="d-block d-lg-flex justify-content-between">
                 <h1>Search Files</h1>
-                <div class="form mb-3 flex-grow-1 mx-auto mx-lg-1 my-auto" style="max-width: 400px">
+                <div class="form mb-3 d-flex  mx-auto mx-lg-1 my-auto" style="max-width: 400px">
+                    <span class="my-auto me-3">Search For</span>
                     <form action="{{route('search')}}" method="get">
                         <div class="d-flex">
                             <input type="text" class="form-control form-control-sm" id="floatingInput"

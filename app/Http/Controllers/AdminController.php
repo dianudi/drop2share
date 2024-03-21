@@ -33,7 +33,7 @@ class AdminController extends Controller
     }
     public function indexAccount()
     {
-        $users = User::whereNot('id', Auth::user()->id)->paginate(15);
+        $users = User::latest()->paginate(15);
         return view('pages.admin.accounts', compact('users'));
     }
 

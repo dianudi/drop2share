@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/account/email', [AccountController::class, 'updateEmail'])->name('account.email');
     Route::patch('/account/password', [AccountController::class, 'updatePassword'])->name('account.password');
     Route::get('/account/recovery', [AccountController::class, 'recoveryPassword'])->middleware('throttle:requestReset')->name('account.recovery');
+    // Administration
     Route::prefix('admin')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('admin.index');
         Route::get('/files', [AdminController::class, 'indexFile'])->name('admin.files');

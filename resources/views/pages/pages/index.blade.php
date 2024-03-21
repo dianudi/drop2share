@@ -36,4 +36,5 @@
         </tbody>
     </table>
 </div>
+<x-footer />
 @endsection
