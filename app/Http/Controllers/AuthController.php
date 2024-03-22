@@ -22,7 +22,10 @@ class AuthController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-
+        $user = User::select('active')->where('email', $credentials['email'])->first();
+        if (!$user->active) return back()->withErrors([
+            'email' => 'Your account has been banned.',
+        ])->onlyInput('email');
         if (Auth::attempt($credentials, $request->input('remember'))) {
             $request->session()->regenerate();
 

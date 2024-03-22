@@ -32,10 +32,22 @@
                 <td>{{$user->files()->count()}}</td>
                 <td>{{formatBytes($user->files()->sum('size'))}}</td>
                 <td>
-                    <a class="btn btn-sm bg-primary"><i class="bi bi-pencil"></i></a>
-                    <button class="btn btn-sm bg-secondary"><i
-                            class="bi bi-{{$user->active ? 'person-slash' : 'person-check'}}"></i></button>
-                    <button class="btn btn-sm bg-danger"><i class="bi bi-trash"></i></button>
+                    @if ($user->role !== 'admin')
+
+                    <form action="{{route('admin.accounts.deactive')}}" method="post" class="d-inline">
+                        @csrf
+                        @method('PATCH')
+                        <input type="hidden" name="id" value="{{$user->id}}">
+                        <button type="submit" class="btn btn-sm bg-primary"><i
+                                class="bi bi-{{$user->active ? 'person-slash' : 'person'}}"></i></button>
+                    </form>
+                    <form action="{{route('admin.accounts.delete')}}" method="post" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <input type="hidden" name="id" value="{{$user->id}}">
+                        <button type="submit" class="btn btn-sm bg-danger"><i class="bi bi-trash"></i></button>
+                    </form>
+                    @endif
                 </td>
             </tr>
             @endforeach

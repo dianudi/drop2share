@@ -6,6 +6,7 @@ use App\Models\File;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -37,6 +38,24 @@ class AdminController extends Controller
         return view('pages.admin.accounts', compact('users'));
     }
 
+    public function deleteAccount(Request $request)
+    {
+        $user = User::findOrFail($request->input('id'));
+        $files = File::where('user_id', $user->id)->get();
+        foreach ($files as $file) {
+            if (Storage::exists($file->storage_path)) Storage::delete($file->storage_path);
+            $file->delete();
+        }
+        $user->delete();
+        return back();
+    }
+
+    public function deactivateAccount(Request $request)
+    {
+        $user = User::findOrFail($request->input('id'));
+        $user->update(['active' => !(bool) $user->active]);
+        return back();
+    }
     public function indexPage()
     {
         return view('pages.admin.pages');

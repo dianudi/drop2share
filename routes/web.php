@@ -46,6 +46,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/files', [AdminController::class, 'indexFile'])->name('admin.files');
         Route::get('/files/{file}', [AdminController::class, 'detailFile'])->name('admin.files.detail');
         Route::get('/accounts', [AdminController::class, 'indexAccount'])->name('admin.accounts');
+        Route::delete('/accounts', [AdminController::class, 'deleteAccount'])->name('admin.accounts.delete');
+        Route::patch('/accounts', [AdminController::class, 'deactivateAccount'])->name('admin.accounts.deactive');
         Route::resource('pages', PageController::class);
     });
 });
