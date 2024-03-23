@@ -8,23 +8,42 @@
             <div class="d-flex justify-content-between">
                 <a href="{{route('pages.index')}}" class="btn btn-outline-primary"><i class="bi bi-arrow-left"></i>
                     Back</a>
-                <button class="btn btn-outline-primary"><i class="bi bi-file"></i> Save</button>
+                <button type="submit" class="btn btn-outline-primary page-submit"><i class="bi bi-file"></i>
+                    Save</button>
             </div>
         </div>
     </div>
     <div class="row mt-3">
         <div class="col">
-            <form action="{{route('pages.store')}}" method="post">
+            <form class="page-form-submit" action="{{route('pages.store')}}" method="post">
                 @csrf
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="title">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" value="{{old('title')}}" name="title"
+                        class="form-control @error('title')is-invalid @enderror" id="title" placeholder="Page Title">
+                    @error('title')
+                    <div class="alert alert-danger mt-1">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
-
+                <div class="mb-3">
+                    <label for="slug" class="form-label">URL Slug</label>
+                    <input type="text" value="{{old('slug')}}" name="slug"
+                        class="form-control @error('slug')is-invalid @enderror" id="slug" placeholder="Page Slug">
+                    @error('slug')
+                    <div class="alert alert-danger mt-1">
+                        {{$message}}
+                    </div>
+                    @enderror
+                </div>
                 <span>Content</span>
-                <div class="editor" data-bs-theme="dark">
-
+                @error('content')
+                <div class="alert alert-danger mt-1">
+                    {{$message}}
                 </div>
+                @enderror
+                <textarea id="editor" name="content">{{old('content')}}</textarea>
             </form>
         </div>
     </div>

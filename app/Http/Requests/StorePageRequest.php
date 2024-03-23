@@ -24,7 +24,7 @@ class StorePageRequest extends FormRequest
         return [
             'slug' => 'required|unique:pages|max:255',
             'title' => 'required|max:255',
-            'contett' => 'required'
+            'content' => 'required'
         ];
     }
 }
