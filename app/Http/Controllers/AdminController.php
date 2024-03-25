@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
+    // Overview service information.
     public function index()
     {
         $disktotal = disk_total_space('/');
@@ -18,6 +19,7 @@ class AdminController extends Controller
         return view('pages.admin.index', compact('disktotal', 'diskfree', 'diskuse'));
     }
 
+    // Manage users files.
     public function indexFile(Request $request)
     {
         $files = $request->query('q') ? File::where('name', 'like', '%' . $request->query('q') . '%')->paginate(15) : File::latest()->paginate(15);
@@ -28,16 +30,20 @@ class AdminController extends Controller
         return view('pages.admin.files', compact('files', 'totalFiles', 'totalDownloaded', 'totalSizes', 'q'));
     }
 
+    // Show detail file.
     public function detailFile(File $file)
     {
         return view('pages.admin.file', compact('file'));
     }
+
+    // Manage user account
     public function indexAccount()
     {
         $users = User::latest()->paginate(15);
         return view('pages.admin.accounts', compact('users'));
     }
 
+    // Delete account and files.
     public function deleteAccount(Request $request)
     {
         $user = User::findOrFail($request->input('id'));
@@ -50,14 +56,11 @@ class AdminController extends Controller
         return back();
     }
 
+    // Bann or Unbann user.
     public function deactivateAccount(Request $request)
     {
         $user = User::findOrFail($request->input('id'));
         $user->update(['active' => !(bool) $user->active]);
         return back();
-    }
-    public function indexPage()
-    {
-        return view('pages.admin.pages');
     }
 }

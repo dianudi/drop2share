@@ -22,7 +22,7 @@ class StorePageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'slug' => 'required|unique:pages|max:255',
+            // 'slug' => 'required|unique:pages|max:255',
             'title' => 'required|max:255',
             'content' => 'required'
         ];

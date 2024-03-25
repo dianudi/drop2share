@@ -38,7 +38,7 @@ class PageController extends Controller
      */
     public function store(StorePageRequest $request)
     {
-        dd($request->validated());
+        // dd($request->validated());
         Page::create($request->validated());
         return to_route('pages.index')->with('status', 'Page created!');
     }

@@ -4,7 +4,7 @@
 <x-topbar />
 <div class="container">
     <x-admin-navbar />
-    <div class="my-3 d-flex justify-content-between">
+    <div class="my-1 d-flex justify-content-between">
         <h3>List Site Pages</h3>
         <a href="{{route('pages.create')}}" class="text-decoration-none btn btn-outline-primary"><i
                 class="bi bi-file-plus">
@@ -21,21 +21,30 @@
             </tr>
         </thead>
         <tbody>
+            @foreach ($pages as $page)
+
             <tr>
-                <th scope="row">1</th>
-                <td><a href="" class="text-decoration-none">Mark</a></td>
-                <td>ss-ss</td>
-                <td>{{Carbon\Carbon::now()->format('d-m-Y')}}</td>
+                <th scope="row">{{ ($pages ->currentpage()-1) * $pages ->perpage() + $loop->index + 1 }}</th>
+                <td><a href="{{route('page.show', ['page' => $page->slug])}}"
+                        class="text-decoration-none">{{$page->title}}</a></td>
+                <td>{{$page->slug}}</td>
+                <td>{{$page->created_at->format('d-m-Y')}}</td>
                 <td class="d-flex">
-                    <a href="" class="me-2 btn btn-success"><i class="bi bi-pencil"></i></a>
-                    <form action="" method="post">
-                        <a href="" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                    <a href="{{route('pages.edit', ['page' => $page->slug])}}" class="me-2 btn btn-sm btn-success"><i
+                            class="bi bi-pencil"></i></a>
+                    <form action="{{route('pages.destroy', ['page' => $page->slug])}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
                     </form>
                 </td>
             </tr>
+            @endforeach
 
         </tbody>
     </table>
+    {{ $pages->links() }}
+
 </div>
 <x-footer />
 @endsection

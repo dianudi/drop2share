@@ -1,6 +1,6 @@
 <div class="row mt-2">
-    <div class="col">
-        <ul class="nav nav-tabs">
+    <div class="col col-md-12">
+        <ul class="nav nav-tabs overflow-scroll">
             <li class="nav-item">
                 <a class="nav-link {{request()->path() == 'admin' ? 'active' : ''}}" aria-current="page"
                     href="{{route('admin.index')}}">Status Overview</a>

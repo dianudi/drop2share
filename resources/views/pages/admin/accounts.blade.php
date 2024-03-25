@@ -5,7 +5,7 @@
 <div class="container">
     <x-admin-navbar />
     <div class="table-responsive">
-        <table class="table table-sm table-responsive table-striped">
+        <table class="table table-sm table-striped">
             <thead>
                 <tr>
                     <th scope="col">#</th>

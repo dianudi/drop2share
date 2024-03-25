@@ -15,11 +15,12 @@
     </div>
     <div class="row mt-3">
         <div class="col">
-            <form class="page-form-submit" action="{{route('pages.store')}}" method="post">
+            <form class="page-form-submit" action="{{route('pages.update', ['page' => $page->slug])}}" method="post">
                 @csrf
+                @method('PATCH')
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" value="{{old('title')}}" name="title"
+                    <input type="text" value="{{old('title') ? old('title') : $page->title}}" name="title"
                         class="form-control @error('title')is-invalid @enderror" id="title" placeholder="Page Title">
                     @error('title')
                     <div class="alert alert-danger mt-1">
@@ -33,7 +34,7 @@
                     {{$message}}
                 </div>
                 @enderror
-                <textarea id="editor" name="content">{{old('content')}}</textarea>
+                <textarea id="editor" name="content">{{old('content') ? old('content') : $page->content}}</textarea>
             </form>
         </div>
     </div>

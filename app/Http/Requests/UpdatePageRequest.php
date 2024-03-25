@@ -23,7 +23,7 @@ class UpdatePageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'slug' => ['required', Rule::unique('posts')->ignore($this->id), 'max:255'],
+            // 'slug' => ['required', Rule::unique('posts')->ignore($this->id), 'max:255'],
             'title' => 'required|max:255',
             'content' => 'required'
         ];

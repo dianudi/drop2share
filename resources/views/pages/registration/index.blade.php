@@ -70,9 +70,8 @@
                     <button type="submit" class="btn btn-primary rounded-pill w-100">Submit</button>
                 </form>
                 <span>By creating an account I agree to <a href="{{route('page.show', ['page' => 'term-of-use'])}}">Term
-                        of Use</a>, <a href="{{route('page.show', ['page' => 'privacy-policy'])}}">Privacy Policy</a>,
-                    <a href="{{route('page.show', ['page' => 'data-term'])}}"> Data
-                        Processing Terms.</a></span>
+                        of Use</a>, And <a href="{{route('page.show', ['page' => 'privacy-policy'])}}">Privacy
+                        Policy.</a></span>
                 <a class="fs-6 text-decoration-none text-center d-block" href="{{route('auth.signin')}}">Already have an
                     account? Sign
                     in</a>

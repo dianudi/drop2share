@@ -14,12 +14,14 @@ use Illuminate\Support\Facades\Storage;
 
 class AccountController extends Controller
 {
+    // Show user detail account.
     public function detailAccount()
     {
         $user = User::find(Auth::user()->id);
         return view('pages.account.detail', compact('user'));
     }
 
+    // Update basic account information.
     public function updateAccount(Request $request)
     {
         $validated = $request->validate([
@@ -33,6 +35,7 @@ class AccountController extends Controller
         return back()->with('updateAccount', 'Account Updated!');
     }
 
+    // Update user email.
     public function updateEmail(Request $request)
     {
         $validated = $request->validate([
@@ -44,6 +47,7 @@ class AccountController extends Controller
         return back()->with('updateEmail', 'Email Updated!');
     }
 
+    // Update user password.
     public function updatePassword(Request $request)
     {
         // validate optional password
@@ -56,6 +60,7 @@ class AccountController extends Controller
         return back()->with('updatePassword', 'Password Updated!');
     }
 
+    // Request reset password.
     public function recoveryPassword()
     {
         $status = Password::sendResetLink(
@@ -67,6 +72,7 @@ class AccountController extends Controller
             : back()->withErrors(['failed' => __($status)]);
     }
 
+    // Delete user from database and files.
     public function deleteAccountAndFiles(Request $request)
     {
         $files = File::where('user_id', Auth::user()->id)->get();

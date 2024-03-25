@@ -35,3 +35,14 @@ window.addEventListener("DOMContentLoaded", async () => {
 document.querySelector(".page-submit").addEventListener("click", () => {
     document.querySelector(".page-form-submit").submit();
 });
+
+// Prevent Bootstrap dialog from blocking focusin
+document.addEventListener("focusin", (e) => {
+    if (
+        e.target.closest(
+            ".tox-tinymce-aux, .moxman-window, .tam-assetmanager-root"
+        ) !== null
+    ) {
+        e.stopImmediatePropagation();
+    }
+});
