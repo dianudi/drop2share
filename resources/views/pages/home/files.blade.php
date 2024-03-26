@@ -5,16 +5,17 @@
 <div class="container mt-2">
     <div class="row">
         <div class="col col-md-10 mx-auto">
-            {{ $files->links() }}
+            <h1>{{$title}}</h1>
             @if (!$files->isEmpty())
             <table class="table table-striped">
                 <tbody>
                     @foreach ($files as $file)
                     <tr>
                         <th scope="row">
-                            <a class="text-decoration-none text-white"
+                            <a class="text-decoration-none text-white fw-normal"
                                 href="{{route('showDetailFile', ['file' => $file->slug])}}">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> {{str($file->name)->limit(60)}}
+                                <p class="m-0 text-break fs-5"><i class="bi bi-file-earmark"></i>
+                                    {{str($file->name)->limit(60)}}
                                     @if($file->password)
                                     <i class="bi bi-lock text-warning"></i> @else @endif
                                 </p>

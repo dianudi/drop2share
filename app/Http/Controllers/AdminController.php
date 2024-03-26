@@ -16,7 +16,10 @@ class AdminController extends Controller
         $disktotal = disk_total_space('/');
         $diskfree  = disk_free_space('/');
         $diskuse   = round(100 - (($diskfree / $disktotal) * 100));
-        return view('pages.admin.index', compact('disktotal', 'diskfree', 'diskuse'));
+        $usertotal = User::count();
+        $filetotal = File::count();
+        $downloadtotal = File::sum('total_download');
+        return view('pages.admin.index', compact('disktotal', 'diskfree', 'diskuse', 'usertotal', 'filetotal', 'downloadtotal'));
     }
 
     // Manage users files.

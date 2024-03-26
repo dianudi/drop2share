@@ -1,5 +1,5 @@
 @extends('templates.base')
-@section('title', 'Admin File Manager')
+@section('title', 'Admin Account Manager')
 @section('content')
 <x-topbar />
 <div class="container">
@@ -23,12 +23,13 @@
                     <th scope="row">{{ ($users ->currentpage()-1) * $users ->perpage() + $loop->index + 1 }}
                     </th>
                     <td>
-                        <div class="d-flex justify-content-between">
+                        <div class="">
                             <div>{{$user->name}} </div>
                             <div>
                                 @if($user->role === 'admin')<small
-                                    class="badge bg-primary me-1">admin</small>@endif<small
-                                    class="badge bg-{{$user->active ? 'info' : 'danger'}}">{{$user->active ? 'Active' :
+                                    class="badge bg-primary d-inline me-1">admin</small>@endif<small
+                                    class="d-inline badge bg-{{$user->active ? 'info' : 'danger'}}">{{$user->active ?
+                                    'Active' :
                                     'Banned'}}</small>
                             </div>
                         </div>
@@ -38,22 +39,23 @@
                     <td>{{$user->files()->count()}}</td>
                     <td>{{formatBytes($user->files()->sum('size'))}}</td>
                     <td>
-                        @if ($user->role !== 'admin')
-
-                        <form action="{{route('admin.accounts.deactive')}}" method="post" class="d-inline">
-                            @csrf
-                            @method('PATCH')
-                            <input type="hidden" name="id" value="{{$user->id}}">
-                            <button type="submit" class="btn btn-sm bg-primary"><i
-                                    class="bi bi-{{$user->active ? 'person-slash' : 'person'}}"></i></button>
-                        </form>
-                        <form action="{{route('admin.accounts.delete')}}" method="post" class="d-inline">
-                            @csrf
-                            @method('DELETE')
-                            <input type="hidden" name="id" value="{{$user->id}}">
-                            <button type="submit" class="btn btn-sm bg-danger"><i class="bi bi-trash"></i></button>
-                        </form>
-                        @endif
+                        <div class="d-flex">
+                            @if ($user->role !== 'admin')
+                            <form action="{{route('admin.accounts.deactive')}}" method="post" class="d-inline me-1">
+                                @csrf
+                                @method('PATCH')
+                                <input type="hidden" name="id" value="{{$user->id}}">
+                                <button type="submit" class="btn btn-sm bg-primary"><i
+                                        class="bi bi-{{$user->active ? 'person-slash' : 'person'}}"></i></button>
+                            </form>
+                            <form action="{{route('admin.accounts.delete')}}" method="post" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <input type="hidden" name="id" value="{{$user->id}}">
+                                <button type="submit" class="btn btn-sm bg-danger"><i class="bi bi-trash"></i></button>
+                            </form>
+                            @endif
+                        </div>
                     </td>
                 </tr>
                 @endforeach

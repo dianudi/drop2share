@@ -5,9 +5,9 @@
     border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
-th > a > p {
+/* th > a > p {
     font-size: 1.3rem;
-}
+} */
 
 .bubble::after {
     content: "";
@@ -33,16 +33,6 @@ th > a > p {
 
 .bounce-logo {
     animation: bounce-anim 2s ease-in-out 0s infinite alternate-reverse forwards;
-}
-
-ul.nav {
-    white-space: nowrap;
-    overflow-x: auto;
-}
-
-ul.nav li {
-    display: inline-block;
-    float: none;
 }
 
 @keyframes bounce-anim {

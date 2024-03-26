@@ -8,9 +8,9 @@
             <div class="d-block d-lg-flex justify-content-between">
                 <h1>Search Files</h1>
                 <div class="form mb-3 d-flex  mx-auto mx-lg-1 my-auto" style="max-width: 400px">
-                    <span class="my-auto me-3">Search For</span>
+                    <span class="my-auto me-auto">Search For</span>
                     <form action="{{route('search')}}" method="get">
-                        <div class="d-flex">
+                        <div class="d-flex ms-1">
                             <input type="text" class="form-control form-control-sm" id="floatingInput"
                                 value="{{$query}}" name="q" placeholder="Search Files...">
                             <button class="btn btn-primary  ms-1"><i class="bi bi-search"></i></button>
@@ -25,9 +25,9 @@
                     @foreach ($files as $file)
                     <tr>
                         <th scope="row">
-                            <a class="text-decoration-none text-white"
+                            <a class="text-decoration-none text-white fw-normal"
                                 href="{{route('showDetailFile', ['file' => $file->slug])}}">
-                                <p class="m-0"><i class="bi bi-file-earmark"></i> {{str($file->name)->limit(60)}}
+                                <p class="m-0 fs-5"><i class="bi bi-file-earmark"></i> {{str($file->name)->limit(60)}}
                                     @if($file->password)
                                     <i class="bi bi-lock text-warning"></i> @else @endif
                                 </p>

@@ -23,20 +23,20 @@
                 <div class="col-12 col-lg-4 card">
                     <div class="card-body">
                         <h5 class="card-title">Total Files</h5>
-                        <p class="card-text">16k Files</p>
+                        <p class="card-text">{{formatNumberInKNotation($filetotal)}} Files</p>
 
                     </div>
                 </div>
                 <div class="col-12 col-lg-4 card">
                     <div class="card-body">
                         <h5 class="card-title">Total Users</h5>
-                        <p class="card-text">5K Users</p>
+                        <p class="card-text">{{formatNumberInKNotation($usertotal)}} Users</p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4 card">
                     <div class="card-body">
                         <h5 class="card-title">Total File Downloaded</h5>
-                        <p class="card-text">5M Downloaded</p>
+                        <p class="card-text">{{formatNumberInKNotation($downloadtotal)}} Downloaded</p>
                     </div>
                 </div>
             </div>

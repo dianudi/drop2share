@@ -22,9 +22,9 @@
                     @foreach ($files as $file)
                     <tr>
                         <th scope="row" class="d-flex justify-content-between align-items-center">
-                            <a class="text-decoration-none text-white"
+                            <a class="text-decoration-none text-white fw-normal"
                                 href="{{route('my-files.show', ['file' => $file->slug])}}">
-                                <p class="m-0 text-break"><i class="bi bi-file-earmark"></i>
+                                <p class="m-0 text-break fs-5"><i class="bi bi-file-earmark"></i>
                                     {{str($file->name)->limit(60)}}
                                     @if($file->password)
                                     <i class="bi bi-lock text-warning"></i> @else @endif

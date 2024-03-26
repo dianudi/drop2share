@@ -104,9 +104,9 @@
                     @foreach ($latestFiles as $file)
                     <tr>
                         <th scope="row">
-                            <a class="text-decoration-none text-white"
+                            <a class="text-decoration-none text-white fw-normal"
                                 href="{{route('showDetailFile', ['file' => $file->slug])}}">
-                                <p class="m-0 text-break"><i class="bi bi-file-earmark"></i>
+                                <p class="m-0 text-break fs-5"><i class="bi bi-file-earmark"></i>
                                     {{str($file->name)->limit(60)}}
                                 </p>
                                 <small>Size: {{formatBytes($file->size)}} Uploaded:
@@ -130,9 +130,9 @@
                     @foreach ($popularFiles as $file)
                     <tr>
                         <th scope="row">
-                            <a class="text-decoration-none text-white"
+                            <a class="text-decoration-none text-white fw-normal"
                                 href="{{route('showDetailFile', ['file' => $file->slug])}}">
-                                <p class="m-0 text-break"><i class="bi bi-file-earmark"></i>
+                                <p class="m-0 text-break fs-5"><i class="bi bi-file-earmark"></i>
                                     {{str($file->name)->limit(60)}}
                                 </p>
                                 <small>Size: {{formatBytes($file->size)}} Uploaded:
