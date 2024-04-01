@@ -30,19 +30,20 @@ window.addEventListener("DOMContentLoaded", async () => {
         license_key: "gpl",
         height: 500,
     });
-});
+    const pageSubmit = document.querySelector(".page-submit");
+    pageSubmit &&
+        pageSubmit.addEventListener("click", () => {
+            document.querySelector(".page-form-submit").submit();
+        });
 
-document.querySelector(".page-submit").addEventListener("click", () => {
-    document.querySelector(".page-form-submit").submit();
-});
-
-// Prevent Bootstrap dialog from blocking focusin
-document.addEventListener("focusin", (e) => {
-    if (
-        e.target.closest(
-            ".tox-tinymce-aux, .moxman-window, .tam-assetmanager-root"
-        ) !== null
-    ) {
-        e.stopImmediatePropagation();
-    }
+    // Prevent Bootstrap dialog from blocking focusin
+    document.addEventListener("focusin", (e) => {
+        if (
+            e.target.closest(
+                ".tox-tinymce-aux, .moxman-window, .tam-assetmanager-root"
+            ) !== null
+        ) {
+            e.stopImmediatePropagation();
+        }
+    });
 });

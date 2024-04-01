@@ -54,8 +54,8 @@ Route::middleware(['auth'])->group(function () {
 
 // Visitor
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/popular', [VisitorFileController::class, 'showPopularFiles'])->name('popular');
-Route::get('/latest', [VisitorFileController::class, 'showLatestUploadFiles'])->name('latest');
+Route::get('/popular-files', [VisitorFileController::class, 'showPopularFiles'])->name('popular');
+Route::get('/latest-upload', [VisitorFileController::class, 'showLatestUploadFiles'])->name('latest');
 Route::get('/search', [VisitorFileController::class, 'searchFiles'])->name('search');
 Route::get('/p/{page}', [VisitorPageController::class, 'show'])->name('page.show');
 Route::get('/u/{user}', [VisitorFileController::class, 'detailUserFiles'])->name('detailUserFiles');

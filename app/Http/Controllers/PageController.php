@@ -22,7 +22,7 @@ class PageController extends Controller
     public function index()
     {
         $pages = Page::paginate(15);
-        return view('pages.pages.index', compact('pages'));
+        return view('pages.admin.pages.index', compact('pages'));
     }
 
     /**
@@ -30,7 +30,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('pages.pages.create');
+        return view('pages.admin.pages.create');
     }
 
     /**
@@ -49,7 +49,7 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        return view('pages.pages.edit', compact('page'));
+        return view('pages.admin.pages.edit', compact('page'));
     }
 
     /**

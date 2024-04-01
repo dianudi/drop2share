@@ -1,5 +1,6 @@
 @extends('templates.base')
 @section('title', $title)
+@section('metaDescription', "List $files on Drop2share")
 @section('content')
 <x-topbar />
 <div class="container mt-2">

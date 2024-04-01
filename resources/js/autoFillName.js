@@ -1,3 +1,6 @@
+/*
+Automatic fill name for uploading file.
+*/
 const inputFile = document.querySelector('div > input[type="file"]');
 if (inputFile) {
     inputFile.addEventListener("change", () => {

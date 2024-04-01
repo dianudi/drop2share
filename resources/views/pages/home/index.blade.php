@@ -1,5 +1,8 @@
 @extends('templates.base')
 @section('title', 'Drop and share your files easily.')
+@section('metaDescription', 'Drop and share your files easily. Drop2share is an unlimited file-sharing service.
+Dropshare
+allows you to share your files around the world. No annoying Pop up, no malware inside.')
 @section('content')
 <x-topbar />
 {{-- Hero start --}}
@@ -8,7 +11,8 @@
     <x-logo />
     <h1 class="display-5 fw-bold text-body-emphasis">Drop2share</h1>
     <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">Drop and share your files easily. Dropshare is an unlimited file-sharing service. Dropshare
+        <p class="lead mb-4">Drop and share your files easily. Drop2share is an unlimited file-sharing service.
+            Dropshare
             allows you to share your files around the world. No annoying Pop up, no malware inside.</p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center align-items-center">
             <a href="#features" class="btn btn-primary px-4 gap-3">Get Started</a>
@@ -97,7 +101,7 @@
         <div class="col-lg-6 ">
             <div class="d-flex justify-content-between align-items-center mb-1 border-bottom">
                 <h2>Latest Upload</h2>
-                <a href="{{route('latest')}}" class="text-decoration-none fs-5">More</a>
+                <a href="{{route('latest')}}" class="text-decoration-none fs-5">More Files</a>
             </div>
             <table class="table table-striped">
                 <tbody>
@@ -123,7 +127,7 @@
         <div class="col-lg-6">
             <div class="d-flex justify-content-between align-items-center mb-1 border-bottom">
                 <h2>Popular Files</h2>
-                <a href="{{route('popular')}}" class="text-decoration-none fs-5">More</a>
+                <a href="{{route('popular')}}" class="text-decoration-none fs-5">More Files</a>
             </div>
             <table class="table table-striped">
                 <tbody>

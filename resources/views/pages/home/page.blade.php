@@ -1,5 +1,6 @@
 @extends('templates.base')
 @section('title', $page->title)
+@section('metaDescription', $page->title)
 @section('content')
 <x-topbar />
 <div class="container my-2">

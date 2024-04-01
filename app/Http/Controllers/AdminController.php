@@ -19,7 +19,10 @@ class AdminController extends Controller
         $usertotal = User::count();
         $filetotal = File::count();
         $downloadtotal = File::sum('total_download');
-        return view('pages.admin.index', compact('disktotal', 'diskfree', 'diskuse', 'usertotal', 'filetotal', 'downloadtotal'));
+        $latestFiles = File::latest()->limit(10)->get();
+        $latestUsers = User::latest()->limit(10)->get();
+        $topDownloaded = File::orderBy('total_download', 'desc')->limit(5)->get();
+        return view('pages.admin.index', compact('disktotal', 'diskfree', 'diskuse', 'usertotal', 'filetotal', 'downloadtotal', 'latestFiles', 'latestUsers', 'topDownloaded'));
     }
 
     // Manage users files.

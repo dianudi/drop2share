@@ -1,5 +1,6 @@
 @extends('templates.base')
 @section('title', "Search $query")
+@section('metaDescription', "Searching file $query")
 @section('content')
 <x-topbar />
 <div class="container mt-2">

@@ -1,6 +1,6 @@
 @extends('templates.base')
-
 @section('title', 'Signin')
+@section('metaDescription', 'Signin Page for Drop2share')
 @section('content')
 <div class="container-fluid">
     <div class="row vh-100">

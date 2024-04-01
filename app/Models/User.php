@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -49,12 +50,14 @@ class User extends Authenticatable
         ];
     }
 
+    // protected $with = ['files'];
+
     public function getRouteKeyName(): string
     {
         return 'username';
     }
 
-    public function files()
+    public function files(): HasMany
     {
         return $this->hasMany(File::class);
     }

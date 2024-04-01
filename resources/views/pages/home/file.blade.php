@@ -1,5 +1,6 @@
 @extends('templates.base')
 @section('title', 'Download ' . $file->name)
+@section('metaDescription', "Download $file->name")
 @section('content')
 <x-topbar />
 <div class="container">
@@ -29,7 +30,7 @@
                     <tr>
                         <td scope="col">User:</td>
                         <td scope="col"><a class="text-decoration-none"
-                                href="{{route('detailUserFiles', ['user' => $file->user->name])}}">{{$file->user->name}}</a>
+                                href="{{route('detailUserFiles', ['user' => $file->user->username])}}">{{$file->user->name}}</a>
                         </td>
                     </tr>
                     <tr>

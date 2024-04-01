@@ -1,6 +1,6 @@
 @extends('templates.base')
-
 @section('title', 'Reset Password')
+@section('metaDescription', 'Reset Password for Drop2share')
 @section('content')
 <div class="container-fluid">
     <div class="row vh-100">

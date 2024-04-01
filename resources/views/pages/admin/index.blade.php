@@ -63,21 +63,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($latestFiles as $file)
                             <tr>
-                                <td>Test 1</td>
-                                <td>User 1</td>
-                                <td>2 minutes ago</td>
+                                <td>{{str($file->name)->limit(20)}}</td>
+                                <td>{{$file->user->name}}</td>
+                                <td>{{$file->created_at->diffForHumans()}}</td>
                             </tr>
-                            <tr>
-                                <td>Test 2</td>
-                                <td>User 2</td>
-                                <td>5 hours ago</td>
-                            </tr>
-                            <tr>
-                                <td>Test 3</td>
-                                <td>User 3</td>
-                                <td>1 week ago</td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -97,16 +89,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($latestUsers as $user)
                             <tr>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>28-03-2024</td>
+                                <td>{{str($user->name)->limit(20)}}</td>
+                                <td>{{$user->username}}</td>
+                                <td>{{$user->created_at->format('d-M-Y')}}</td>
                             </tr>
-                            <tr>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>29-03-2024</td>
-                            </tr>
+
+                            @endforeach
                         </tbody>
                     </table>
 
@@ -128,24 +118,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($topDownloaded as $file)
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>1k</td>
+                                <th scope="row">{{$loop->iteration}}</th>
+                                <td>{{str($file->name)->limit(20)}}</td>
+                                <td>{{$file->user->name}}</td>
+                                <td>{{formatNumberInKNotation($file->total_download)}}</td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>500</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry the Bird</td>
-                                <td>Larry</td>
-                                <td>250</td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
 

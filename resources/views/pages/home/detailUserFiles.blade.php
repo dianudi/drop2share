@@ -1,5 +1,6 @@
 @extends('templates.base')
 @section('title', $user->name . '\'s files')
+@section('metaDescription', 'Detail of' . $user->name . '\'s files')
 @section('content')
 <x-topbar />
 <div class="container mt-2">
