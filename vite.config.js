@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import laravel from "laravel-vite-plugin";
-import os from "node:os";
 
 export default defineConfig({
     plugins: [
@@ -9,7 +8,4 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    server: {
-        hmr: { host: new URL(process.env.APP_URL).host || os.hostname },
-    },
 });

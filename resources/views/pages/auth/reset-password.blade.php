@@ -13,7 +13,7 @@
                 </svg>
                 <h3 class="fs-2">Drop2share</h3>
             </div>
-            <div class="rounded p-4 glass" style="min-width: 360px;">
+            <div class="rounded py-4 px-3 glass" style="min-width: 360px; max-width: 360px">
                 <h1 class="text-center fs-4 mb-3">Change Password</h1>
                 <form class="mb-3" action="{{route('password.update', $token)}}" method="POST" autocomplete="on">
                     @csrf
@@ -27,7 +27,7 @@
                         <input type="password" name="password"
                             class="form-control @error('password') is-invalid @enderror" id="password">
                         @error('password')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger mt-2 text-center">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
@@ -36,7 +36,7 @@
                             class="form-control @error('password_confirmation') is-invalid @enderror"
                             id="password_confirmation">
                         @error('password_confirmation')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger mt-2 text-center">{{ $message }}</div>
                         @enderror
                     </div>
                     <button type="submit" class="btn btn-primary rounded-pill w-100">Submit</button>

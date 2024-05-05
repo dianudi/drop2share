@@ -27,8 +27,8 @@
                             <div>{{$user->name}} </div>
                             <div>
                                 @if($user->role === 'admin')<small
-                                    class="badge bg-primary d-inline me-1">admin</small>@endif<small
-                                    class="d-inline badge bg-{{$user->active ? 'info' : 'danger'}}">{{$user->active ?
+                                    class="text-info d-inline me-1">admin</small>@endif<small
+                                    class="d-inline text-{{$user->active ? 'success' : 'danger'}}">{{$user->active ?
                                     'Active' :
                                     'Banned'}}</small>
                             </div>

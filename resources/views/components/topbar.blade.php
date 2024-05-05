@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg " style="background-image: linear-gradient(to right, darkviolet, salmon)">
+<nav class="navbar navbar-expand-lg border-bottom">
     <div class="container">
         <a class="navbar-brand" href="/"><i class="bi bi-cloud"></i> Drop2share</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -12,12 +12,12 @@
                         aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{request()->path() == 'popular' ? 'active border-bottom border-white' : ''}}"
+                    <a class="nav-link {{request()->path() == 'popular-files' ? 'active border-bottom border-white' : ''}}"
                         href="{{route('popular')}}">Popular
                         Files</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{request()->path() == 'latest' ? 'active border-bottom border-white' : ''}}"
+                    <a class="nav-link {{request()->path() == 'latest-upload' ? 'active border-bottom border-white' : ''}}"
                         href="{{route('latest')}}">Latest
                         Upload</a>
                 </li>

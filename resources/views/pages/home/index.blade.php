@@ -6,8 +6,7 @@ allows you to share your files around the world. No annoying Pop up, no malware 
 @section('content')
 <x-topbar />
 {{-- Hero start --}}
-<div class="container-fluid px-4 text-center"
-    style="background-image: linear-gradient(120deg, darkviolet, salmon); padding: 100px">
+<div class="container-fluid px-4 text-center" style=" padding: 100px">
     <x-logo />
     <h1 class="display-5 fw-bold text-body-emphasis">Drop2share</h1>
     <div class="col-lg-6 mx-auto">
@@ -15,10 +14,10 @@ allows you to share your files around the world. No annoying Pop up, no malware 
             Dropshare
             allows you to share your files around the world. No annoying Pop up, no malware inside.</p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center align-items-center">
-            <a href="#features" class="btn btn-primary px-4 gap-3">Get Started</a>
+            <a href="{{route('my-files.create')}}" class="btn btn-primary px-4 gap-3">Upload File</a>
             <span class="mx-2">OR</span>
             @if (auth()->check())
-            <a href="{{route('my-files.index')}}" class="btn btn-success px-4 gap-3"> Go To My Files</a>
+            <a href="{{route('my-files.index')}}" class="btn btn-success px-4 gap-3">Manage Files</a>
             @else
             <a href="{{route('registration.register')}}" class="btn btn-info px-4">Sign Up</a>
 
@@ -28,7 +27,7 @@ allows you to share your files around the world. No annoying Pop up, no malware 
 </div>
 {{-- Hero end --}}
 {{-- Features start --}}
-<div style="background-image: linear-gradient(60deg, darkviolet, salmon)">
+<div>
     <div class="container px-4 mb-3" id="features">
         <h2 class="pb-2 border-bottom">Features</h2>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">

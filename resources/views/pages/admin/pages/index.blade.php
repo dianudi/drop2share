@@ -5,7 +5,7 @@
 <div class="container">
     <x-admin-navbar />
     <div class="my-1 d-flex justify-content-between">
-        <h3>List Site Pages</h3>
+        <h3>Site Pages</h3>
         <a href="{{route('pages.create')}}" class="text-decoration-none btn btn-outline-primary"><i
                 class="bi bi-file-plus">
                 New</i></a>

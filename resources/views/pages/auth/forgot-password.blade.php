@@ -13,9 +13,10 @@
                 </svg>
                 <h3 class="fs-2">Drop2share</h3>
             </div>
-            <div class="rounded p-4 glass" style="min-width: 360px">
+            <div class="rounded py-4 px-3 glass" style="min-width: 360px">
                 <h1 class="text-center fs-4 mb-3">Forgot your password?</h1>
-                <p class="text-center fs-6">Enter your email address and we will send you instructions to reset your
+                <p class="text-center fs-6" style="max-width: 360px">Enter your email address and we will send you
+                    instructions to reset your
                     password.
                 </p>
                 <form class="mb-3" action="{{route('password.email')}}" method="POST" autocomplete="on">
