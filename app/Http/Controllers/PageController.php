@@ -11,7 +11,7 @@ class PageController extends Controller
 {
     public function __construct()
     {
-        if (!Gate::allows('adminOnly')) {
+        if (! Gate::allows('adminOnly')) {
             abort(403);
         }
     }
@@ -22,6 +22,7 @@ class PageController extends Controller
     public function index()
     {
         $pages = Page::paginate(15);
+
         return view('pages.admin.pages.index', compact('pages'));
     }
 
@@ -40,9 +41,9 @@ class PageController extends Controller
     {
         // dd($request->validated());
         Page::create($request->validated());
+
         return to_route('pages.index')->with('status', 'Page created!');
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -58,6 +59,7 @@ class PageController extends Controller
     public function update(UpdatePageRequest $request, Page $page)
     {
         $page->update($request->validated());
+
         return to_route('pages.index')->with('status', 'Page updated!');
     }
 
@@ -67,6 +69,7 @@ class PageController extends Controller
     public function destroy(Page $page)
     {
         $page->delete();
+
         return to_route('pages.index')->with('status', 'Page deleted');
     }
 }

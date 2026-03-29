@@ -18,6 +18,7 @@ class ResetPasswordController extends Controller
     {
         return view('pages.auth.forgot-password');
     }
+
     public function sendEmail(Request $request)
     {
         $request->validate(['email' => 'required|email']);
@@ -29,9 +30,11 @@ class ResetPasswordController extends Controller
             ? back()->with(['status' => __($status)])
             : back()->withErrors(['email' => __($status)]);
     }
+
     public function resetPasswordForm(Request $request, $token): View
     {
         $email = $request->query('email');
+
         return view('pages.auth.reset-password', compact('token', 'email'));
     }
 
@@ -47,7 +50,7 @@ class ResetPasswordController extends Controller
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function (User $user, string $password) {
                 $user->forceFill([
-                    'password' => Hash::make($password)
+                    'password' => Hash::make($password),
                 ])->setRememberToken(Str::random(60));
 
                 $user->save();

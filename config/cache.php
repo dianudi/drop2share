@@ -32,7 +32,6 @@ return [
 
     'stores' => [
 
-
         'array' => [
             'driver' => 'array',
             'serialize' => false,
@@ -110,6 +109,18 @@ return [
     |
     */
 
-    'prefix' => env('CACHE_PREFIX', Str::slug((string) env('APP_NAME', 'laravel')) . '-cache-'),
+    'prefix' => env('CACHE_PREFIX', Str::slug((string) env('APP_NAME', 'laravel')).'-cache-'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Serializable Classes
+    |--------------------------------------------------------------------------
+    |
+    | This value determines the classes that can be unserialized from cache
+    | storage. By default, no PHP classes will be unserialized from your
+    | cache to prevent gadget chain attacks if your APP_KEY is leaked.
+    |
+    */
+
+    'serializable_classes' => false,
 ];

@@ -13,12 +13,14 @@ class RegitrationController extends Controller
     {
         return view('pages.registration.index');
     }
+
     public function register(RegistrationRequest $request)
     {
         $user = new User($request->validated());
         $user->username = Str::snake($request->input('username'));
         $user->password = Hash::make($request->input('password'));
         $user->save();
+
         return to_route('auth.signin');
     }
 }

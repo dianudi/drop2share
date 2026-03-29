@@ -14,6 +14,7 @@ class VisitorFileController extends Controller
     {
         $files = File::select('*')->orderBy('total_download', 'desc')->paginate(15);
         $title = 'Popular Files';
+
         return view('pages.home.files', compact('files', 'title'));
     }
 
@@ -21,13 +22,15 @@ class VisitorFileController extends Controller
     {
         $files = File::select('*')->latest()->paginate(15);
         $title = 'Latest Upload';
+
         return view('pages.home.files', compact('files', 'title'));
     }
 
     public function searchFiles(Request $request)
     {
-        $files = File::select('*')->where('name', 'like', '%' . $request->query('q') . '%')->paginate(15);
+        $files = File::select('*')->where('name', 'like', '%'.$request->query('q').'%')->paginate(15);
         $query = $request->query('q');
+
         return view('pages.home.search', compact('files', 'query'));
     }
 
@@ -43,6 +46,7 @@ class VisitorFileController extends Controller
             return back()->with('errorUnlockFile', 'Invalid Unlock Password');
         }
         $request->session()->put('fileId', $file->id);
+
         return back();
     }
 
@@ -52,6 +56,7 @@ class VisitorFileController extends Controller
             $file->update(['total_download' => $file->total_download + 1]);
         }, 5);
         $request->session()->forget('fileId');
+
         return Storage::download($file->storage_path, $file->name);
     }
 

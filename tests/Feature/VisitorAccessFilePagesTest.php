@@ -5,8 +5,6 @@ namespace Tests\Feature;
 use App\Models\File;
 use App\Models\User;
 use Exception;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class VisitorAccessFilePagesTest extends TestCase
@@ -35,7 +33,7 @@ class VisitorAccessFilePagesTest extends TestCase
     public function test_user_can_access_detail_file(): void
     {
         $file = File::select('slug')->first();
-        if (!$file) {
+        if (! $file) {
             throw new Exception('Test Error No File Inserted to DB');
         }
         $response = $this->get(route('showDetailFile', ['file' => $file->slug]));
@@ -45,7 +43,7 @@ class VisitorAccessFilePagesTest extends TestCase
     public function test_user_can_access_uploaded_user_detail_files(): void
     {
         $user = User::select('username')->first();
-        if (!$user) {
+        if (! $user) {
             throw new Exception('Test Error No User Inserted to DB');
         }
         $response = $this->get(route('detailUserFiles', ['user' => $user->username]));

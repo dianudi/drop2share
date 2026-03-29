@@ -11,6 +11,7 @@ class File extends Model
     use HasFactory;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
+
     protected $with = ['user'];
 
     public function getRouteKeyName(): string

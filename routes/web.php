@@ -12,7 +12,6 @@ use App\Http\Controllers\VisitorFileController;
 use App\Http\Controllers\VisitorPageController;
 use Illuminate\Support\Facades\Route;
 
-
 // Authentication
 Route::get('/signin', [AuthController::class, 'showPage'])->name('auth.showPage')->middleware('guest');
 Route::post('/signin', [AuthController::class, 'signin'])->name('auth.signin')->middleware('guest');
@@ -29,7 +28,6 @@ Route::get('/forgot-password', [ResetPasswordController::class, 'showPage'])->na
 Route::post('/forgot-password', [ResetPasswordController::class, 'sendEmail'])->name('password.email')->middleware('guest');
 Route::get('/reset-password/{token}', [ResetPasswordController::class, 'resetPasswordForm'])->name('password.reset');
 Route::post('/reset-password/{token}', [ResetPasswordController::class, 'updatePassword'])->name('password.update');
-
 
 Route::middleware(['auth'])->group(function () {
     // File controller

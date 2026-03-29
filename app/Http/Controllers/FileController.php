@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
-use Sqids\Sqids;
 use Illuminate\Support\Str;
+use Sqids\Sqids;
 
 class FileController extends Controller
 {
@@ -20,6 +20,7 @@ class FileController extends Controller
     {
         $context = DB::table('files')->selectRaw('count(id) as total_files, sum(size) as total_size, sum(total_download) as total_download')->where('user_id', Auth::user()->id)->first();
         $files = File::where('user_id', Auth::user()->id)->latest()->paginate(15);
+
         return view('pages.files.index', compact('files', 'context'));
     }
 
@@ -43,6 +44,7 @@ class FileController extends Controller
         $file->storage_path = $request->file('file')->store('files');
         $file->size = $request->file('file')->getSize();
         $file->save();
+
         return to_route('my-files.index')->with('status', 'File uploaded');
     }
 
@@ -52,6 +54,7 @@ class FileController extends Controller
     public function show(File $file)
     {
         Gate::authorize('mustOwner', $file);
+
         return view('pages.home.file', compact('file'));
     }
 
@@ -61,8 +64,11 @@ class FileController extends Controller
     public function destroy(File $file)
     {
         Gate::authorize('mustOwner', $file);
-        if (Storage::exists($file->storage_path)) Storage::delete($file->storage_path);
+        if (Storage::exists($file->storage_path)) {
+            Storage::delete($file->storage_path);
+        }
         $file->delete();
+
         return back();
     }
 }

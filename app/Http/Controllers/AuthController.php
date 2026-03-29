@@ -6,8 +6,8 @@ use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Str;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
@@ -23,9 +23,11 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
         $user = User::select('active')->where('email', $credentials['email'])->first();
-        if ($user && !$user->active) return back()->withErrors([
-            'email' => 'Your account has been banned.',
-        ])->onlyInput('email');
+        if ($user && ! $user->active) {
+            return back()->withErrors([
+                'email' => 'Your account has been banned.',
+            ])->onlyInput('email');
+        }
         if (Auth::attempt($credentials, $request->input('remember'))) {
             $request->session()->regenerate();
 
@@ -42,6 +44,7 @@ class AuthController extends Controller
         if ($driver === 'facebook' || $driver === 'google') {
             return Socialite::driver($driver)->redirect();
         }
+
         return abort(404);
     }
 
@@ -50,9 +53,10 @@ class AuthController extends Controller
         $socialiteUser = Socialite::driver($driver)->user();
         $user = User::updateOrCreate(['email' => $socialiteUser->getEmail()], [
             'name' => $socialiteUser->getName(),
-            'username' => Str::snake($socialiteUser->getNickname())
+            'username' => Str::snake($socialiteUser->getNickname()),
         ]);
         Auth::login($user);
+
         return to_route('home');
     }
 
@@ -61,6 +65,7 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+
         return redirect('/');
     }
 }
